@@ -41,8 +41,10 @@ const BirthForm = ({ onSubmit }) => {
   };
 
   return (
-    <div className="mystic-card max-w-lg mx-auto w-full relative z-10">
-      <h2 className="text-3xl text-center text-gold-400 mb-6 font-bold">วิเคราะห์ดวงจากวันเกิด</h2>
+    <div id="birth-form" className="mystic-card max-w-lg mx-auto w-full relative z-10 p-8">
+      <h2 className="text-3xl font-bold text-center text-gold-400 mb-6 font-prompt">
+        🔮 พิธีกรรมเปิดดวงชะตา
+      </h2>
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-2 gap-4">

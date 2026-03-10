@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import BirthForm from '../components/BirthForm';
 import ResultCard from '../components/ResultCard';
-import { calculateFortune } from '../utils/fortuneCalculations';
+import { calculateFortune } from '../utils/fortuneEngine';
+import ElementChart from '../components/ElementChart';
+import TestimonialsSection from '../components/TestimonialsSection';
 
 const Home = () => {
   const [results, setResults] = useState(null);
@@ -34,14 +36,15 @@ const Home = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto flex flex-col items-center">
-      <div className="text-center mb-10 z-10 w-full relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl animate-pulse -z-10"></div>
-        <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-300 mb-4 drop-shadow-lg font-prompt">
-          🔮 Mystic Crystal Fortune
+    <div className="max-w-4xl mx-auto flex flex-col items-center">
+      {/* Hero Portal */}
+      <div className="text-center mb-16 z-10 w-full relative py-12">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500/30 rounded-full blur-[80px] animate-pulse -z-10"></div>
+        <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-300 to-indigo-400 mb-6 drop-shadow-2xl font-prompt">
+          🔮 Mystic Crystal Oracle
         </h1>
-        <p className="text-mystic-300 max-w-lg mx-auto font-sarabun text-lg">
-          ค้นหาดวงชะตาของคุณ จากวันเดือนปีเกิด และค้นพบหินมงคลที่เหมาะกับคุณ
+        <p className="text-mystic-300 max-w-xl mx-auto font-sarabun text-xl leading-relaxed">
+          ค้นพบดวงชะตา ธาตุประจำตัว และหินมงคลที่เหมาะกับพลังชีวิตของคุณ
         </p>
       </div>
 
@@ -54,6 +57,8 @@ const Home = () => {
       )}
       
       {results && !isCalculating && <ResultCard results={results} onReset={handleReset} />}
+      
+      <TestimonialsSection />
     </div>
   );
 };
