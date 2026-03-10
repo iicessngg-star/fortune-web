@@ -14,12 +14,16 @@ export default {
           600: '#5b3a9d',
           500: '#754dc9',
           400: '#916cf6',
+        },
+        gold: {
+          DEFAULT: '#fbbf24',
+          500: '#fbbf24',
+          400: '#fcd34d',
         }
       },
       fontFamily: {
-        cinzel: ['Cinzel', 'serif'],
-        playfair: ['Playfair Display', 'serif'],
-        poppins: ['Poppins', 'sans-serif'],
+        sarabun: ['Sarabun', 'sans-serif'],
+        prompt: ['Prompt', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
