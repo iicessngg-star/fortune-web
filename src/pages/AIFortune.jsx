@@ -64,7 +64,7 @@ export default function AIFortune() {
                 <MessageCircleQuestion className="absolute right-4 top-4 text-mystic-500/50 w-6 h-6 pointer-events-none" />
               </div>
             </div>
-            <button type="submit" className="mystic-btn px-8 py-3 w-full max-w-xs text-lg shadow-glow">
+            <button type="submit" className="mystic-btn px-8 py-3 w-full max-w-xs text-lg shadow-lg shadow-mystic-400/40">
               Seek Wisdom
             </button>
           </form>

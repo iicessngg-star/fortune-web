@@ -7,7 +7,7 @@ export default function StoneCard({ sign, stoneData }) {
   return (
     <MysticCard className="animate-in fade-in zoom-in duration-500">
       <div className="flex flex-col items-center text-center space-y-4">
-        <div className="p-4 bg-mystic-900/50 rounded-full border border-mystic-500/30 shadow-glow mb-2">
+        <div className="p-4 bg-mystic-900/50 rounded-full border border-mystic-500/30 shadow-lg shadow-mystic-400/40 mb-2">
           <Gem className="w-10 h-10 text-mystic-400" />
         </div>
         

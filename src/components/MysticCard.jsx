@@ -5,7 +5,7 @@ export default function MysticCard({ children, className, glow = false }) {
   return (
     <div className={cn(
       "mystic-card relative overflow-hidden group",
-      glow ? "border-mystic-400/40 shadow-glow" : "",
+      glow ? "border-mystic-400/40 shadow-lg shadow-mystic-400/40" : "",
       className
     )}>
       {/* Optional decorative corner pieces */}
