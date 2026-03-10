@@ -99,8 +99,8 @@ const BirthForm = ({ onSubmit }) => {
           />
         </div>
 
-        <button type="submit" className="w-full mt-6 text-lg font-prompt font-semibold px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-500 text-white transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-purple-500/40 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-mystic-900 active:scale-95">
-          วิเคราะห์ดวง
+        <button type="submit" className="w-full mt-6 text-lg font-prompt font-semibold px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-500 text-white transition-all duration-300 shadow-xl hover:shadow-purple-500/40 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-mystic-900 active:scale-95">
+          🔮 ดูดวงเลย
         </button>
       </form>
     </div>

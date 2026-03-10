@@ -3,7 +3,8 @@ import ElementAnalysis from './ElementAnalysis';
 import BaziAnalysis from './BaziAnalysis';
 import PlanetAnalysis from './PlanetAnalysis';
 import AIReading from './AIReading';
-import LuckyItems from './LuckyItems';
+import LuckySection from './LuckyItems';
+import CrystalRecommendation from './CrystalRecommendation';
 
 const ResultCard = ({ results, onReset }) => {
   if (!results) return null;
@@ -15,7 +16,8 @@ const ResultCard = ({ results, onReset }) => {
         <ElementAnalysis element={results.element} />
         <PlanetAnalysis planet={results.planet} />
         <BaziAnalysis zodiac={results.zodiac} />
-        <LuckyItems color={results.luckyColor} number={results.luckyNumber} crystal={results.luckyCrystal} />
+        <LuckySection color={results.luckyColor} number={results.luckyNumber} day={results.luckyDay} />
+        <CrystalRecommendation crystals={results.recommendedCrystals} />
         <AIReading aiReading={results.aiReading} />
       </div>
 
