@@ -3,7 +3,7 @@ import ElementAnalysis from './ElementAnalysis';
 import BaziAnalysis from './BaziAnalysis';
 import PlanetAnalysis from './PlanetAnalysis';
 import AIReading from './AIReading';
-import LuckySection from './LuckyItems';
+import LuckySection from './LuckySection';
 import CrystalRecommendation from './CrystalRecommendation';
 
 const ResultCard = ({ results, onReset }) => {
