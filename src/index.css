@@ -16,11 +16,11 @@
 
 @layer components {
   .mystic-card {
-    @apply bg-mystic-800/60 backdrop-blur-md border border-mystic-500/30 rounded-2xl p-6 shadow-lg shadow-mystic-500/10 transition-all duration-300;
+    @apply bg-purple-900/40 backdrop-blur-xl border border-purple-500/40 rounded-2xl p-6 shadow-2xl transition-all duration-300;
   }
   
   .mystic-card:hover {
-    @apply shadow-mystic-600/30 border-mystic-400/50 -translate-y-1;
+    @apply shadow-purple-500/20 border-purple-400/50 -translate-y-1;
   }
   
   .mystic-btn {

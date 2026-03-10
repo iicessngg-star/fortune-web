@@ -34,13 +34,13 @@ function App() {
         <div className="absolute bottom-[20%] left-[20%] w-72 h-72 bg-gold-500/10 rounded-full blur-3xl mix-blend-screen"></div>
       </div>
 
-      <div className="max-w-4xl mx-auto flex flex-col items-center">
-        <div className="text-center mb-10 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-yellow-200 mb-4 drop-shadow-lg">
-            Mystic Fortune
+      <div className="max-w-3xl mx-auto flex flex-col items-center">
+        <div className="text-center mb-10 z-10 w-full">
+          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-300 mb-4 drop-shadow-lg font-prompt">
+            วิเคราะห์ดวงจากวันเกิด
           </h1>
-          <p className="text-mystic-300 max-w-lg mx-auto">
-            ค้นพบความลับแห่งดวงดาวและธาตุทั้ง 5 ที่ซ่อนอยู่ในวันเกิดของคุณ
+          <p className="text-mystic-300 max-w-lg mx-auto font-sarabun text-lg">
+            ค้นพบความลับแห่งดวงดาว ธาตุประจำตัว และนักษัตรของคุณ
           </p>
         </div>
 

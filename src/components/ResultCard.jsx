@@ -3,17 +3,19 @@ import ElementAnalysis from './ElementAnalysis';
 import BaziAnalysis from './BaziAnalysis';
 import PlanetAnalysis from './PlanetAnalysis';
 import AIReading from './AIReading';
+import LuckyItems from './LuckyItems';
 
 const ResultCard = ({ results, onReset }) => {
   if (!results) return null;
 
   return (
-    <div className="space-y-6 mt-10 animate-fade-in w-full max-w-4xl mx-auto relative z-10">
+    <div className="space-y-6 mt-10 animate-fade-in w-full max-w-3xl mx-auto relative z-10">
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <ElementAnalysis element={results.element} />
         <PlanetAnalysis planet={results.planet} />
-        <BaziAnalysis bazi={results.bazi} birthChart={results.birthChart} />
+        <BaziAnalysis zodiac={results.zodiac} />
+        <LuckyItems color={results.luckyColor} number={results.luckyNumber} crystal={results.luckyCrystal} />
         <AIReading aiReading={results.aiReading} />
       </div>
 
