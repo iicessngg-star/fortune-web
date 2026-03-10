@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 
@@ -8,7 +8,7 @@ const MagicCursor = lazy(() => import('./components/MagicCursor'));
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <Suspense fallback={null}>
         <MagicCursor />
       </Suspense>
@@ -55,7 +55,7 @@ function App() {
           &copy; {new Date().getFullYear()} Mystic Crystal Fortune. วิเคราะห์ดวงและหินมงคล
         </footer>
       </div>
-    </BrowserRouter>
+    </>
   );
 }
 
