@@ -28,7 +28,7 @@
   }
   
   .mystic-input {
-    @apply w-full bg-mystic-900/50 border border-mystic-600/50 rounded-xl px-4 py-3 text-white placeholder-mystic-300/50 focus:outline-none focus:border-mystic-400 focus:ring-1 focus:ring-mystic-400 font-sarabun transition-colors;
+    @apply w-full bg-mystic-900/50 border border-mystic-600/50 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-mystic-400 focus:ring-1 focus:ring-mystic-400 font-sarabun transition-colors;
   }
 }
 
