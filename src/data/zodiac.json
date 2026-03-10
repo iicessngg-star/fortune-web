@@ -1,0 +1,14 @@
+{
+  "Aries": {"element":"Fire","luckyColor":"Red","luckyNumber":9},
+  "Taurus":{"element":"Earth","luckyColor":"Green","luckyNumber":6},
+  "Gemini":{"element":"Air","luckyColor":"Yellow","luckyNumber":5},
+  "Cancer":{"element":"Water","luckyColor":"Silver","luckyNumber":2},
+  "Leo":{"element":"Fire","luckyColor":"Gold","luckyNumber":1},
+  "Virgo":{"element":"Earth","luckyColor":"Brown","luckyNumber":5},
+  "Libra":{"element":"Air","luckyColor":"Pink","luckyNumber":7},
+  "Scorpio":{"element":"Water","luckyColor":"Black","luckyNumber":8},
+  "Sagittarius":{"element":"Fire","luckyColor":"Purple","luckyNumber":3},
+  "Capricorn":{"element":"Earth","luckyColor":"Grey","luckyNumber":4},
+  "Aquarius":{"element":"Air","luckyColor":"Blue","luckyNumber":11},
+  "Pisces":{"element":"Water","luckyColor":"Sea Green","luckyNumber":12}
+}

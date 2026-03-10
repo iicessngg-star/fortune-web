@@ -1,0 +1,62 @@
+{
+  "Aries": {
+    "stone": "Diamond",
+    "meaning": "Brings clarity, strength, and unwavering courage. The diamond amplifies energy and offers protection from negativity.",
+    "alternative": "Bloodstone"
+  },
+  "Taurus": {
+    "stone": "Emerald",
+    "meaning": "Draws love, romance, and emotional healing. Enhances fertility, abundance, and deep connection to nature.",
+    "alternative": "Rose Quartz"
+  },
+  "Gemini": {
+    "stone": "Agate",
+    "meaning": "Provides grounding and balances conflicting energies. Stimulates intellect and enhances communication.",
+    "alternative": "Pearl"
+  },
+  "Cancer": {
+    "stone": "Moonstone",
+    "meaning": "Enhances intuition and emotional balance. Promotes inspiration, success, and good fortune in love and business.",
+    "alternative": "Ruby"
+  },
+  "Leo": {
+    "stone": "Peridot",
+    "meaning": "Brings warmth, well-being, and positive energy. Assists in manifestation and attracts wealth and abundance.",
+    "alternative": "Onyx"
+  },
+  "Virgo": {
+    "stone": "Sapphire",
+    "meaning": "Promotes mental clarity, wisdom, and spiritual insight. Helps to calm an overactive mind and brings peace.",
+    "alternative": "Carnelian"
+  },
+  "Libra": {
+    "stone": "Opal",
+    "meaning": "Stimulates originality and creativity. Encourages freedom, independence, and enhances cosmic consciousness.",
+    "alternative": "Lapis Lazuli"
+  },
+  "Scorpio": {
+    "stone": "Topaz",
+    "meaning": "Soothes, heals, stimulates, recharges, and aligns the meridians. Promotes truth and forgiveness.",
+    "alternative": "Turquoise"
+  },
+  "Sagittarius": {
+    "stone": "Amethyst",
+    "meaning": "Provides spiritual protection and deepens meditation. Enhances higher states of consciousness and intuition.",
+    "alternative": "Turquoise"
+  },
+  "Capricorn": {
+    "stone": "Garnet",
+    "meaning": "Revitalizes, purifies, and balances energy. Inspires love, devotion, and brings courage in times of challenge.",
+    "alternative": "Lapis Lazuli"
+  },
+  "Aquarius": {
+    "stone": "Amethyst",
+    "meaning": "Calms the mind, enhances spiritual awareness, and provides clarity in chaotic times. Encourages inner peace.",
+    "alternative": "Garnet"
+  },
+  "Pisces": {
+    "stone": "Aquamarine",
+    "meaning": "A stone of courage and calming energies. Reduces stress and quiets the mind, making it perfect for sensitive souls.",
+    "alternative": "Amethyst"
+  }
+}
