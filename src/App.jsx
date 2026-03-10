@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 
+const CosmicBackground = lazy(() => import('./components/CosmicBackground'));
+const MagicCursor = lazy(() => import('./components/MagicCursor'));
+
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen py-6 px-4 relative overflow-hidden flex flex-col bg-gradient-to-br from-[#1a0b2e] via-[#2d1b4e] to-[#4c1d95]">
-        {/* Premium Background decorations */}
-        <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-          <div className="absolute top-[5%] left-[10%] w-96 h-96 bg-purple-600/20 rounded-full blur-[100px] mix-blend-screen animate-pulse"></div>
-          <div className="absolute top-[60%] right-[5%] w-[30rem] h-[30rem] bg-indigo-500/10 rounded-full blur-[120px] mix-blend-screen"></div>
-          <div className="absolute bottom-[-10%] left-[20%] w-80 h-80 bg-pink-500/10 rounded-full blur-[100px] mix-blend-screen"></div>
-          
-          {/* Animated Stars */}
-          <div className="absolute top-[15%] right-[25%] w-1 h-1 bg-white rounded-full animate-ping opacity-30"></div>
-          <div className="absolute top-[45%] left-[20%] w-1.5 h-1.5 bg-white rounded-full animate-ping opacity-40" style={{ animationDuration: '3s' }}></div>
-          <div className="absolute top-[75%] right-[35%] w-2 h-2 bg-white rounded-full animate-ping opacity-20" style={{ animationDelay: '1.5s', animationDuration: '4s' }}></div>
-          <div className="absolute top-[30%] left-[60%] w-1 h-1 bg-white rounded-full animate-ping opacity-50" style={{ animationDelay: '0.5s' }}></div>
+      <Suspense fallback={null}>
+        <MagicCursor />
+      </Suspense>
+      <div className="min-h-screen py-6 px-4 relative flex flex-col bg-gradient-to-br from-[#1a0b2e] via-[#2d1b4e] to-[#4c1d95]">
+        <Suspense fallback={<div className="fixed inset-0 bg-[#0f0a1f] -z-20"></div>}>
+          <CosmicBackground />
+        </Suspense>
+        
+        {/* Premium Background ambient glows */}
+        <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[5%] left-[10%] w-96 h-96 bg-purple-600/20 rounded-full blur-[100px] mix-blend-screen animate-pulse z-[-10]"></div>
+          <div className="absolute top-[60%] right-[5%] w-[30rem] h-[30rem] bg-indigo-500/10 rounded-full blur-[120px] mix-blend-screen z-[-10]"></div>
+          <div className="absolute bottom-[-10%] left-[20%] w-80 h-80 bg-pink-500/10 rounded-full blur-[100px] mix-blend-screen z-[-10]"></div>
         </div>
 
         {/* Navigation Bar */}

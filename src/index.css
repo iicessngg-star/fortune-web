@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    background-image: radial-gradient(circle at top, #2d1b4e 0%, #1a0b2e 100%);
+    background-image: radial-gradient(circle at top, #2e1065 0%, #0f0a1f 100%);
     background-attachment: fixed;
     color: #e2e8f0;
   }

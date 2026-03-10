@@ -126,6 +126,34 @@ export const generateAIReading = (element, zodiac, planet) => {
   return `คุณเกิดปี${zodiac} ธาตุ${element.name.replace('ธาตุ', '')} มีดาว${planet.name}เป็นดาวประจำวันเกิด พลังแห่ง${planet.name}สะท้อนบุคลิกที่${planet.meaning} โดดเด่นเป็นพิเศษ`;
 };
 
+export const getRandomTarotCard = () => {
+  const tarotDeck = [
+    { name: 'The Fool', meaning: 'การเริ่มต้นสิ้งใหม่ ความมีอิสระ การผจญภัยที่น่าตื่นเต้น', image: 'https://images.unsplash.com/photo-1633519106001-ecb7b208da01?w=400&h=600&fit=crop' },
+    { name: 'The Magician', meaning: 'การมีพรสวรรค์ ความสามารถ พลังแห่งการเนรมิตสิ่งต่างๆ', image: 'https://images.unsplash.com/photo-1590422749969-95e5d3fa9f17?w=400&h=600&fit=crop' },
+    { name: 'The High Priestess', meaning: 'สัญชาตญาณ ความลึกลับ ความรู้สึกเบื้องลึกและปัญญา', image: 'https://images.unsplash.com/photo-1636130985558-7dcfea6bca50?w=400&h=600&fit=crop' },
+    { name: 'The Empress', meaning: 'ความอุดมสมบูรณ์ ความรัก ความเป็นแม่ ความเจริญงอกงาม', image: 'https://images.unsplash.com/photo-1611095973763-414019e72400?w=400&h=600&fit=crop' },
+    { name: 'The Emperor', meaning: 'อำนาจ ความมั่นคง ความเป็นผู้นำ และการปกครอง', image: 'https://images.unsplash.com/photo-1627856412431-155e97b137fc?w=400&h=600&fit=crop' },
+    { name: 'The Star', meaning: 'ความหวัง แรงบันดาลใจ การเยียวยา และโอกาสใหม่ๆ', image: 'https://images.unsplash.com/photo-1620023067645-ec05c451da7a?w=400&h=600&fit=crop' },
+    { name: 'The Sun', meaning: 'ความสำเร็จ ความร่าเริง พลังงานด้านบวกและความสุข', image: 'https://images.unsplash.com/photo-1633519105436-1e967bebe6cb?w=400&h=600&fit=crop' },
+    { name: 'The Moon', meaning: 'ความฝัน ภาพลวงตา สิ่งที่ซ่อนเร้นและการเปลี่ยนแปลง', image: 'https://images.unsplash.com/photo-1596401057404-58ebf4b1d64c?w=400&h=600&fit=crop' },
+    { name: 'Wheel of Fortune', meaning: 'โชคชะตา โอกาส จุดเปลี่ยนของชีวิตที่กำลังมาถึง', image: 'https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?w=400&h=600&fit=crop' }
+  ];
+  const randomIndex = Math.floor(Math.random() * tarotDeck.length);
+  return tarotDeck[randomIndex];
+};
+
+export const getBirthChartPositions = (seed) => {
+  // Deterministic positions based on a seed (e.g. ceYear + month + day)
+  // Angles represent degrees on the wheel (0-360)
+  return [
+    { name: 'Sun', icon: '☀️', angle: (seed * 15) % 360, color: 'text-yellow-400' },
+    { name: 'Moon', icon: '🌙', angle: (seed * 45 + 30) % 360, color: 'text-gray-200' },
+    { name: 'Mercury', icon: '☿️', angle: (seed * 85 + 60) % 360, color: 'text-green-400' },
+    { name: 'Venus', icon: '♀️', angle: (seed * 115 + 90) % 360, color: 'text-pink-400' },
+    { name: 'Mars', icon: '♂️', angle: (seed * 195 + 120) % 360, color: 'text-red-500' }
+  ];
+};
+
 export const calculateFortune = (day, month, beYear, time) => {
   const ceYear = convertBEtoCE(beYear);
   const element = calculateElement(ceYear);
@@ -136,6 +164,9 @@ export const calculateFortune = (day, month, beYear, time) => {
   const luckyThings = generateLuckyThings(element.name);
   const elementBalance = calculateElementBalance(ceYear, month, day);
   const recommendedCrystals = getRecommendedCrystalsByWeakness(elementBalance.weakest);
+  
+  const seed = ceYear + parseInt(month, 10) + parseInt(day, 10);
+  const birthChart = getBirthChartPositions(seed);
 
   return {
     element,
@@ -143,6 +174,7 @@ export const calculateFortune = (day, month, beYear, time) => {
     planet,
     aiReading,
     elementBalance,
+    birthChart,
     luckyColor: luckyThings.colors,
     luckyNumber: luckyThings.numbers,
     luckyDay: luckyThings.days,

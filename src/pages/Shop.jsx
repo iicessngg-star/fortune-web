@@ -30,6 +30,12 @@ const products = [
     benefit: 'สัมผัสที่หก นำพาสันติสุขและความเยือกเย็น', 
     price: '550', 
     image: 'https://images.unsplash.com/photo-1596401057404-58ebf4b1d64c?w=400&h=400&fit=crop' 
+  },
+  {
+    name: 'Labradorite',
+    benefit: 'ปกป้องออร่า ดึงดูดความมหัศจรรย์และการตื่นรู้',
+    price: '690',
+    image: 'https://images.unsplash.com/photo-1574315042827-048035ed88c0?w=400&h=400&fit=crop'
   }
 ];
 
