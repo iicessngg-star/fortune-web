@@ -47,4 +47,4 @@ const FortuneResult = ({ results, onReset }) => {
   );
 };
 
-export default ResultCard;
+export default FortuneResult;
