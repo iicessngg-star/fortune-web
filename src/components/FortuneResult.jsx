@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import ElementAnalysis from './ElementAnalysis';
 import BaziAnalysis from './BaziAnalysis';
 import PlanetAnalysis from './PlanetAnalysis';
@@ -9,6 +10,7 @@ import ElementChart from './ElementChart';
 import BirthChart from './BirthChart';
 
 const FortuneResult = ({ results, onReset }) => {
+  const { t } = useTranslation();
   if (!results) return null;
 
   return (
@@ -17,7 +19,7 @@ const FortuneResult = ({ results, onReset }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="col-span-1 md:col-span-2 text-center mb-4">
           <h2 className="text-3xl font-bold text-gold-400 font-prompt tracking-wide">
-            คำทำนายดวงชะตาของคุณ
+            {t('your_fortune_title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
         </div>
@@ -40,7 +42,7 @@ const FortuneResult = ({ results, onReset }) => {
           onClick={onReset}
           className="px-8 py-3 bg-mystic-900/80 border border-purple-500 text-purple-300 hover:text-white hover:bg-purple-800 rounded-2xl transition-all shadow-lg font-prompt font-semibold tracking-wide"
         >
-          ✨ ทบทวนโชคชะตาอีกครั้ง
+          {t('review_fortune_again')}
         </button>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const products = [
   { 
@@ -40,14 +41,16 @@ const products = [
 ];
 
 const Shop = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="max-w-5xl mx-auto z-10 relative">
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-300 mb-4 font-prompt">
-          ✨ Crystal Shop ✨
+          ✨ {t('crystal_shop_title')} ✨
         </h1>
         <p className="text-mystic-300 font-sarabun text-lg">
-          เลือกซื้อหินมงคลแท้ เสริมดวงชะตาและเพิ่มพลังบวกให้กับชีวิตคุณ
+          {t('crystal_shop_desc')}
         </p>
       </div>
 
@@ -71,10 +74,10 @@ const Shop = () => {
                 {product.benefit}
               </p>
               <div className="text-xl font-bold text-gold-400 mb-6">
-                ราคา {product.price} บาท
+                {t('price')} {product.price} {t('baht')}
               </div>
               <button className="w-full font-prompt font-semibold px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-500 text-white transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-purple-500/40 hover:scale-105 active:scale-95">
-                ซื้อเลย
+                {t('buy_now').replace('🛒 ', '')}
               </button>
             </div>
           </div>

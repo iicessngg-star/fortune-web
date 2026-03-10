@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getRandomTarotCard } from '../utils/fortuneEngine';
 
 const TarotDraw = () => {
+  const { t } = useTranslation();
   const [card, setCard] = useState(null);
   const [isDrawing, setIsDrawing] = useState(false);
 
@@ -19,10 +21,10 @@ const TarotDraw = () => {
     <div className="w-full max-w-4xl mx-auto mt-12 mb-12 z-10 relative px-4">
       <div className="mystic-card text-center p-8">
         <h2 className="text-3xl font-bold text-pink-400 font-prompt mb-4">
-          🎴 ไพ่ทาโรต์ประจำวัน
+          {t('tarot_title')}
         </h2>
         <p className="text-mystic-300 font-sarabun mb-8">
-          เปิดไพ่เพื่อรับคำแนะนำและพลังงานประจำวันของคุณ
+          {t('tarot_desc')}
         </p>
         
         {!card && !isDrawing && (
@@ -30,7 +32,7 @@ const TarotDraw = () => {
             onClick={handleDraw}
             className="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-2xl shadow-xl hover:scale-105 transition-all font-prompt font-semibold text-lg"
           >
-            สุ่มไพ่วันนี้
+            {t('draw_card')}
           </button>
         )}
         
@@ -58,7 +60,7 @@ const TarotDraw = () => {
                 onClick={handleDraw}
                 className="mt-6 px-6 py-2 bg-mystic-900/80 border border-pink-500 text-pink-300 hover:bg-pink-900/50 rounded-xl transition-all font-prompt text-sm"
               >
-                สุ่มไพ่ใหม่อีกครั้ง
+                {t('draw_card_again')}
               </button>
             </div>
           </div>

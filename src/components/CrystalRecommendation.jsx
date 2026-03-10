@@ -1,15 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const CrystalRecommendation = ({ crystals }) => {
+  const { t } = useTranslation();
   if (!crystals || crystals.length === 0) return null;
 
   return (
     <div className="mystic-card col-span-1 md:col-span-2 mt-4">
-      <h3 className="text-xl text-mystic-400 mb-6 text-center">💎 หินมงคลที่แนะนำสำหรับคุณ 💎</h3>
+      <h3 className="text-xl text-mystic-400 mb-6 text-center">💎 {t('crystal_recommendation')} 💎</h3>
       
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         {crystals.map((crystal, idx) => {
-          const badges = ["🔥 Popular", "✨ Recommended", "🧿 Best Energy"];
+          const badges = [`🔥 ${t('popular')}`, `✨ ${t('recommended')}`, `🧿 ${t('best_energy')}`];
           const badge = badges[idx % badges.length];
 
           return (
@@ -34,10 +36,10 @@ const CrystalRecommendation = ({ crystals }) => {
                 {crystal.benefit}
               </p>
               <div className="font-semibold text-gold-400 mb-4 font-prompt text-lg">
-                ราคา {crystal.price} บาท
+                {t('price')} {crystal.price} {t('baht')}
               </div>
               <button className="w-full font-prompt px-4 py-2 rounded-xl bg-mystic-600 hover:bg-mystic-500 text-white transition-colors border border-purple-500/30 group-hover:border-pink-500/50 group-hover:shadow-[0_0_15px_rgba(236,72,153,0.3)]">
-                🛒 สั่งซื้อเลย
+                🛒 {t('buy_now')}
               </button>
             </div>
           </div>

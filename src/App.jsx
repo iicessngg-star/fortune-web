@@ -3,10 +3,15 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 
+import LanguageSwitcher from './components/LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
+
 const CosmicBackground = lazy(() => import('./components/CosmicBackground'));
 const MagicCursor = lazy(() => import('./components/MagicCursor'));
 
 function App() {
+  const { t } = useTranslation();
+
   return (
     <>
       <Suspense fallback={null}>
@@ -26,19 +31,22 @@ function App() {
 
         {/* Navigation Bar */}
         <nav className="max-w-4xl mx-auto w-full mb-8 z-20 mt-4">
-          <div className="backdrop-blur-xl bg-purple-900/40 border border-purple-500/30 rounded-2xl flex justify-center space-x-6 md:space-x-12 py-4 shadow-xl">
-            <Link to="/" className="text-gray-200 hover:text-white font-prompt hover:text-pink-400 transition-colors font-semibold tracking-wide">
-              Home
-            </Link>
-            <a href="/#birth-form" className="text-gray-200 hover:text-white font-prompt hover:text-pink-400 transition-colors font-semibold tracking-wide">
-              ดูดวง
-            </a>
-            <a href="/shop" className="text-gray-200 hover:text-white font-prompt hover:text-pink-400 transition-colors font-semibold tracking-wide">
-              หินมงคล
-            </a>
-            <Link to="/shop" className="text-gold-400 hover:text-yellow-300 font-prompt transition-colors font-bold tracking-wide flex items-center gap-2">
-              <span>💎</span> Shop
-            </Link>
+          <div className="backdrop-blur-xl bg-purple-900/40 border border-purple-500/30 rounded-2xl flex justify-between items-center px-6 md:px-12 py-4 shadow-xl">
+            <div className="flex space-x-6 md:space-x-12">
+              <Link to="/" className="text-gray-200 hover:text-white font-prompt hover:text-pink-400 transition-colors font-semibold tracking-wide">
+                {t('home')}
+              </Link>
+              <a href="/#birth-form" className="text-gray-200 hover:text-white font-prompt hover:text-pink-400 transition-colors font-semibold tracking-wide">
+                {t('fortune')}
+              </a>
+              <a href="/shop" className="text-gray-200 hover:text-white font-prompt hover:text-pink-400 transition-colors font-semibold tracking-wide">
+                {t('crystal')}
+              </a>
+              <Link to="/shop" className="text-gold-400 hover:text-yellow-300 font-prompt transition-colors font-bold tracking-wide flex items-center gap-2">
+                <span>💎</span> {t('shop')}
+              </Link>
+            </div>
+            <LanguageSwitcher />
           </div>
         </nav>
 

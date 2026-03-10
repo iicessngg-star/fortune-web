@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const months = [
   { value: '01', label: 'มกราคม' },
@@ -16,6 +17,7 @@ const months = [
 ];
 
 const BirthForm = ({ onSubmit }) => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     day: '',
     month: '01',
@@ -43,13 +45,13 @@ const BirthForm = ({ onSubmit }) => {
   return (
     <div id="birth-form" className="mystic-card max-w-lg mx-auto w-full relative z-10 p-8">
       <h2 className="text-3xl font-bold text-center text-gold-400 mb-6 font-prompt">
-        🔮 พิธีกรรมเปิดดวงชะตา
+        {t('birth_form_title')}
       </h2>
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-mystic-400 mb-1 text-sm">วันที่ (1-31)</label>
+            <label className="block text-mystic-400 mb-1 text-sm">{t('day')} (1-31)</label>
             <input 
               type="number" 
               name="day"
@@ -62,7 +64,7 @@ const BirthForm = ({ onSubmit }) => {
             />
           </div>
           <div>
-            <label className="block text-mystic-400 mb-1 text-sm">เดือน</label>
+            <label className="block text-mystic-400 mb-1 text-sm">{t('month')}</label>
             <select 
               name="month"
               value={formData.month}
@@ -77,7 +79,7 @@ const BirthForm = ({ onSubmit }) => {
         </div>
 
         <div>
-          <label className="block text-mystic-400 mb-1 text-sm">ปีเกิด (พ.ศ.)</label>
+          <label className="block text-mystic-400 mb-1 text-sm">{t('year')}</label>
           <input 
             type="number" 
             name="year"
@@ -90,7 +92,7 @@ const BirthForm = ({ onSubmit }) => {
         </div>
 
         <div>
-          <label className="block text-mystic-400 mb-1 text-sm">เวลาเกิด</label>
+          <label className="block text-mystic-400 mb-1 text-sm">{t('birth_time')}</label>
           <input 
             type="time" 
             name="time"
@@ -102,7 +104,7 @@ const BirthForm = ({ onSubmit }) => {
         </div>
 
         <button type="submit" className="w-full mt-6 text-lg font-prompt font-semibold px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-500 text-white transition-all duration-300 shadow-xl hover:shadow-purple-500/40 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-mystic-900 active:scale-95">
-          🔮 ดูดวงเลย
+          {t('submit_fortune')}
         </button>
       </form>
     </div>
