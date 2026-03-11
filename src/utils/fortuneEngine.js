@@ -23,6 +23,24 @@ export const calculateChineseZodiac = (ceYear) => {
   return animals[animalIndex];
 };
 
+export const calculateWesternZodiac = (day, month) => {
+  const d = parseInt(day, 10);
+  const m = parseInt(month, 10);
+  
+  if ((m === 3 && d >= 21) || (m === 4 && d <= 19)) return { key: 'aries', icon: '♈' };
+  if ((m === 4 && d >= 20) || (m === 5 && d <= 20)) return { key: 'taurus', icon: '♉' };
+  if ((m === 5 && d >= 21) || (m === 6 && d <= 20)) return { key: 'gemini', icon: '♊' };
+  if ((m === 6 && d >= 21) || (m === 7 && d <= 22)) return { key: 'cancer', icon: '♋' };
+  if ((m === 7 && d >= 23) || (m === 8 && d <= 22)) return { key: 'leo', icon: '♌' };
+  if ((m === 8 && d >= 23) || (m === 9 && d <= 22)) return { key: 'virgo', icon: '♍' };
+  if ((m === 9 && d >= 23) || (m === 10 && d <= 22)) return { key: 'libra', icon: '♎' };
+  if ((m === 10 && d >= 23) || (m === 11 && d <= 21)) return { key: 'scorpio', icon: '♏' };
+  if ((m === 11 && d >= 22) || (m === 12 && d <= 21)) return { key: 'sagittarius', icon: '♐' };
+  if ((m === 12 && d >= 22) || (m === 1 && d <= 19)) return { key: 'capricorn', icon: '♑' };
+  if ((m === 1 && d >= 20) || (m === 2 && d <= 18)) return { key: 'aquarius', icon: '♒' };
+  return { key: 'pisces', icon: '♓' };
+};
+
 export const calculatePlanet = (day, month, year) => {
   const paddedMonth = String(month).padStart(2, '0');
   const paddedDay = String(day).padStart(2, '0');
@@ -118,15 +136,15 @@ export const getRecommendedCrystalsByWeakness = (weakElementName) => {
 
 export const getRandomTarotCard = () => {
   const tarotDeck = [
-    { key: 'tarot_fool', name: 'The Fool', image: 'https://images.unsplash.com/photo-1633519106001-ecb7b208da01?w=400&h=600&fit=crop' },
-    { key: 'tarot_magician', name: 'The Magician', image: 'https://images.unsplash.com/photo-1590422749969-95e5d3fa9f17?w=400&h=600&fit=crop' },
-    { key: 'tarot_high_priestess', name: 'The High Priestess', image: 'https://images.unsplash.com/photo-1636130985558-7dcfea6bca50?w=400&h=600&fit=crop' },
-    { key: 'tarot_empress', name: 'The Empress', image: 'https://images.unsplash.com/photo-1611095973763-414019e72400?w=400&h=600&fit=crop' },
-    { key: 'tarot_emperor', name: 'The Emperor', image: 'https://images.unsplash.com/photo-1627856412431-155e97b137fc?w=400&h=600&fit=crop' },
-    { key: 'tarot_star', name: 'The Star', image: 'https://images.unsplash.com/photo-1620023067645-ec05c451da7a?w=400&h=600&fit=crop' },
-    { key: 'tarot_sun', name: 'The Sun', image: 'https://images.unsplash.com/photo-1633519105436-1e967bebe6cb?w=400&h=600&fit=crop' },
-    { key: 'tarot_moon', name: 'The Moon', image: 'https://images.unsplash.com/photo-1596401057404-58ebf4b1d64c?w=400&h=600&fit=crop' },
-    { key: 'tarot_wheel_of_fortune', name: 'Wheel of Fortune', image: 'https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?w=400&h=600&fit=crop' }
+    { key: 'tarot_fool', name: 'The Fool', image: 'https://upload.wikimedia.org/wikipedia/en/9/90/RWS_Tarot_00_Fool.jpg' },
+    { key: 'tarot_magician', name: 'The Magician', image: 'https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg' },
+    { key: 'tarot_high_priestess', name: 'The High Priestess', image: 'https://upload.wikimedia.org/wikipedia/en/8/88/RWS_Tarot_02_High_Priestess.jpg' },
+    { key: 'tarot_empress', name: 'The Empress', image: 'https://upload.wikimedia.org/wikipedia/en/c/ce/RWS_Tarot_03_Empress.jpg' },
+    { key: 'tarot_emperor', name: 'The Emperor', image: 'https://upload.wikimedia.org/wikipedia/en/c/c3/RWS_Tarot_04_Emperor.jpg' },
+    { key: 'tarot_star', name: 'The Star', image: 'https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_17_Star.jpg' },
+    { key: 'tarot_sun', name: 'The Sun', image: 'https://upload.wikimedia.org/wikipedia/en/1/17/RWS_Tarot_19_Sun.jpg' },
+    { key: 'tarot_moon', name: 'The Moon', image: 'https://upload.wikimedia.org/wikipedia/en/7/7f/RWS_Tarot_18_Moon.jpg' },
+    { key: 'tarot_wheel_of_fortune', name: 'Wheel of Fortune', image: 'https://upload.wikimedia.org/wikipedia/en/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg' }
   ];
   const randomIndex = Math.floor(Math.random() * tarotDeck.length);
   return tarotDeck[randomIndex];
@@ -144,10 +162,24 @@ export const getBirthChartPositions = (seed) => {
   ];
 };
 
+export const calculateLifeAreas = (seed) => {
+  // Use today's date added to user seed to make it daily-dynamic
+  const today = new Date();
+  const dailySeed = seed + today.getDate() + today.getMonth() * 31;
+  
+  return {
+    career: 45 + (dailySeed * 13) % 45, // 45-90%
+    love: 40 + (dailySeed * 17) % 55,   // 40-95%
+    wellness: 50 + (dailySeed * 7) % 45, // 50-95%
+    finance: 35 + (dailySeed * 23) % 60  // 35-95%
+  };
+};
+
 export const calculateFortune = (day, month, beYear, time) => {
   const ceYear = convertBEtoCE(beYear);
   const element = calculateElement(ceYear);
   const zodiac = calculateChineseZodiac(ceYear);
+  const sunSign = calculateWesternZodiac(day, month);
   const planet = calculatePlanet(day, month, ceYear);
   
   const luckyThings = generateLuckyThings(element.name);
@@ -156,13 +188,16 @@ export const calculateFortune = (day, month, beYear, time) => {
   
   const seed = ceYear + parseInt(month, 10) + parseInt(day, 10);
   const birthChart = getBirthChartPositions(seed);
+  const lifeAreas = calculateLifeAreas(seed);
 
   return {
     element,
     zodiac,
+    sunSign,
     planet,
     elementBalance,
     birthChart,
+    lifeAreas,
     luckyColor: luckyThings.colors,
     luckyNumber: luckyThings.numbers,
     luckyDay: luckyThings.days,

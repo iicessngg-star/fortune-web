@@ -5,54 +5,101 @@ const BirthChart = ({ birthChart }) => {
   const { t } = useTranslation();
   if (!birthChart) return null;
 
+  // Extract a few aspects for the bottom info mapping
+  const aspects = birthChart.slice(0, 2);
+
   return (
-    <div className="mystic-card col-span-1 md:col-span-2 flex flex-col items-center justify-center p-8">
-      <h3 className="text-2xl text-gray-100 mb-10 font-prompt font-bold">
-        {t('birth_chart_title')}
-      </h3>
-      
-      <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-white/10 flex items-center justify-center shadow-[0_0_40px_rgba(255,255,255,0.03)] bg-white/[0.02] backdrop-blur-md">
-        {/* Zodiac wheel rings decor */}
-        <div className="absolute inset-2 border border-dashed border-white/10 rounded-full animate-[spin_60s_linear_infinite]"></div>
-        <div className="absolute inset-8 border border-white/5 rounded-full"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.02)_0%,transparent_60%)]"></div>
-        
-        {/* Center icon */}
-        <div className="absolute text-3xl opacity-50 drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]">
-          🧿
-        </div>
-
-        {/* Planet Plotting */}
-        {birthChart.map((planet, idx) => {
-          // Calculate x,y position on the circle boundary
-          const angleRad = (planet.angle - 90) * (Math.PI / 180);
-          const radius = window.innerWidth > 768 ? 140 : 110;
-          const x = Math.cos(angleRad) * radius;
-          const y = Math.sin(angleRad) * radius;
-
-          return (
-            <div 
-              key={idx}
-              className={`absolute flex flex-col items-center justify-center transform group cursor-help transition-all duration-300 hover:scale-125 hover:z-20`}
-              style={{
-                transform: `translate(${x}px, ${y}px)`
-              }}
-              title={`${planet.name} at ${planet.angle}°`}
-            >
-              <span className={`text-2xl drop-shadow-sm ${planet.color}`}>
-                {planet.icon}
-              </span>
-              <span className="opacity-0 group-hover:opacity-100 absolute top-8 text-xs font-medium text-gray-200 bg-[#1c153b] px-3 py-1.5 rounded-lg border border-white/10 transition-opacity whitespace-nowrap z-20 shadow-lg">
-                {t(`planet_${planet.name.toLowerCase()}`)}
-              </span>
-            </div>
-          );
-        })}
+    <div className="mystic-card h-full flex flex-col justify-between">
+      <div className="flex justify-between items-start mb-6 w-full">
+        <h3 className="text-xl font-bold text-gray-100 font-prompt tracking-wide border-b border-white/10 pb-2 drop-shadow-sm w-full">
+          {t('natal_chart')}
+        </h3>
       </div>
       
-      <p className="mt-10 text-sm text-gray-400 font-sarabun text-center max-w-sm">
-        {t('birth_chart_desc')}
-      </p>
+      <div className="relative w-full aspect-square max-w-[280px] mx-auto flex items-center justify-center my-4">
+        {/* SVG Concentric Zodiac Wheel */}
+        <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-[0_0_15px_rgba(255,255,255,0.05)] text-purple-300">
+          <circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.3" />
+          <circle cx="100" cy="100" r="75" fill="none" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.5" />
+          <circle cx="100" cy="100" r="55" fill="none" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.8" />
+          <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" strokeWidth="1" strokeOpacity="0.8" />
+          <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.3" />
+          
+          {/* Wheel Spokes (12 Houses) */}
+          {[...Array(12)].map((_, i) => {
+            const angle = (i * 30 * Math.PI) / 180;
+            const x1 = 100 + 50 * Math.cos(angle);
+            const y1 = 100 + 50 * Math.sin(angle);
+            const x2 = 100 + 95 * Math.cos(angle);
+            const y2 = 100 + 95 * Math.sin(angle);
+            return (
+              <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.4" />
+            );
+          })}
+
+          {/* Connect inner aspect lines randomly based on planets */}
+          {birthChart.length >= 3 && (
+            <polygon 
+               points={birthChart.slice(0,3).map(p => {
+                 const a = (p.angle * Math.PI) / 180;
+                 return `${100 + 40 * Math.cos(a)},${100 + 40 * Math.sin(a)}`;
+               }).join(' ')} 
+               fill="none" 
+               stroke="#a855f7" 
+               strokeWidth="1"
+               strokeOpacity="0.6"
+            />
+          )}
+          {birthChart.length >= 4 && (
+            <line 
+               x1={100 + 40 * Math.cos((birthChart[1].angle * Math.PI) / 180)}
+               y1={100 + 40 * Math.sin((birthChart[1].angle * Math.PI) / 180)}
+               x2={100 + 40 * Math.cos((birthChart[3].angle * Math.PI) / 180)}
+               y2={100 + 40 * Math.sin((birthChart[3].angle * Math.PI) / 180)}
+               stroke="#3b82f6" 
+               strokeWidth="0.5"
+            />
+          )}
+
+          {/* Plot Planets */}
+          {birthChart.map((planet, idx) => {
+            const angleRad = (planet.angle * Math.PI) / 180;
+            const radius = 65; // Inner track
+            const x = 100 + radius * Math.cos(angleRad) - 4;
+            const y = 100 + radius * Math.sin(angleRad) + 4; // Adjust baseline
+            return (
+              <text key={idx} x={x} y={y} fontSize="12" fill="currentColor" opacity="0.9">
+                {planet.icon}
+              </text>
+            );
+          })}
+        </svg>
+      </div>
+      
+      <div className="grid grid-cols-2 gap-4 mt-2">
+        <div>
+          <h4 className="text-gray-400 font-sarabun text-xs uppercase tracking-widest mb-2">{t('aspects')}</h4>
+          {aspects.map((asp, i) => (
+             <div key={i} className="text-sm font-prompt text-gray-200 mb-1 flex items-center gap-1">
+               <span className="text-yellow-400 opacity-80">{asp.icon}</span> 
+               <span>{t(`planet_${asp.name.toLowerCase()}`)} {asp.angle}°</span>
+             </div>
+          ))}
+        </div>
+        <div>
+          <h4 className="text-gray-400 font-sarabun text-xs uppercase tracking-widest mb-2">{t('current_positions')}</h4>
+          {birthChart.slice(2, 4).map((asp, i) => (
+             <div key={i} className="text-sm font-prompt text-gray-200 mb-1 flex items-center gap-1">
+               <span className="text-blue-400 opacity-80">{asp.icon}</span> 
+               <span>{t(`planet_${asp.name.toLowerCase()}`)} {asp.angle}°</span>
+             </div>
+          ))}
+        </div>
+      </div>
+
+      <button className="w-full py-3 mt-6 rounded-xl bg-white/5 border border-white/10 text-gray-300 font-prompt text-sm tracking-widest font-semibold hover:bg-white/10 hover:text-white transition-all uppercase focus:outline-none">
+        {t('view_full_chart')}
+      </button>
     </div>
   );
 };
