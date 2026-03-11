@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 
@@ -11,6 +11,14 @@ const MagicCursor = lazy(() => import('./components/MagicCursor'));
 
 function App() {
   const { t } = useTranslation();
+  const location = useLocation();
+
+  const getNavClass = (path) => {
+    const isActive = location.pathname === path;
+    return isActive
+      ? "text-gold-400 font-prompt transition-all duration-300 font-bold tracking-widest flex items-center gap-1 drop-shadow-[0_0_8px_rgba(250,204,21,0.6)] scale-105"
+      : "text-gray-300 hover:text-gold-400 font-prompt transition-colors duration-300 font-medium tracking-wide flex items-center gap-1";
+  };
 
   return (
     <>
@@ -34,13 +42,13 @@ function App() {
           <div className="max-w-6xl mx-auto w-full px-4 pt-4">
             <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl flex flex-col md:flex-row justify-between items-center px-6 md:px-8 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.1)] gap-4 md:gap-0">
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:space-x-8 text-sm md:text-base">
-                <Link to="/" className="text-gray-300 hover:text-white font-prompt hover:text-mystic-400 transition-colors font-medium tracking-wide">
+                <Link to="/" className={getNavClass('/')}>
                   {t('home')}
                 </Link>
-                <a href="/#birth-form" className="text-gray-300 hover:text-white font-prompt hover:text-mystic-400 transition-colors font-medium tracking-wide">
+                <a href="/#birth-form" className="text-gray-300 hover:text-gold-400 font-prompt transition-colors duration-300 font-medium tracking-wide">
                   {t('fortune')}
                 </a>
-                <Link to="/shop" className="text-gold-400/90 hover:text-gold-400 font-prompt transition-colors font-semibold tracking-wide flex items-center gap-1">
+                <Link to="/shop" className={getNavClass('/shop')}>
                   <span>💎</span> {t('shop')}
                 </Link>
               </div>

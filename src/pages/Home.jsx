@@ -50,8 +50,11 @@ const Home = () => {
       {/* Hero Portal */}
       <div className="text-center mb-16 z-10 w-full relative py-12">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35rem] h-[35rem] bg-purple-600/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
-        <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-purple-400 mb-6 font-prompt tracking-tight drop-shadow-sm">
-          {t('hero_title')}
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 font-prompt tracking-tight flex flex-col justify-center items-center gap-4 md:gap-6">
+          <span className="text-6xl md:text-8xl drop-shadow-[0_0_25px_rgba(216,180,254,0.6)] hover:scale-110 transition-transform duration-500 cursor-default">🔮</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-br from-white via-purple-100 to-purple-400 drop-shadow-sm">
+            {t('hero_title')}
+          </span>
         </h1>
         <p className="text-gray-300 max-w-xl mx-auto font-sarabun text-lg md:text-xl leading-relaxed px-4">
           {t('hero_subtitle')}
