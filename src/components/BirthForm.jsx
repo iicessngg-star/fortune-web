@@ -43,15 +43,15 @@ const BirthForm = ({ onSubmit }) => {
   };
 
   return (
-    <div id="birth-form" className="mystic-card max-w-2xl mx-auto w-full relative z-10 p-6 md:p-10">
-      <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-100 mb-8 font-prompt">
+    <div id="birth-form" className="mystic-card max-w-2xl mx-auto w-full relative z-10">
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-8 font-prompt tracking-wide drop-shadow-sm">
         {t('birth_form_title')}
       </h2>
       
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-gray-400 mb-2 text-sm font-medium">{t('day')} (1-31)</label>
+            <label className="block text-purple-200/80 mb-2 text-sm font-medium tracking-wide">{t('day')} (1-31)</label>
             <input 
               type="number" 
               name="day"
@@ -59,17 +59,17 @@ const BirthForm = ({ onSubmit }) => {
               value={formData.day}
               onChange={handleChange}
               className="mystic-input"
-              placeholder="เช่น 15"
+              placeholder="1-31"
               required
             />
           </div>
           <div>
-            <label className="block text-gray-400 mb-2 text-sm font-medium">{t('month')}</label>
+            <label className="block text-purple-200/80 mb-2 text-sm font-medium tracking-wide">{t('month')}</label>
             <select 
               name="month"
               value={formData.month}
               onChange={handleChange}
-              className="mystic-input text-gray-100 bg-mystic-900"
+              className="mystic-input"
             >
               {months.map(m => (
                 <option key={m.value} value={m.value}>{m.label}</option>
@@ -79,31 +79,31 @@ const BirthForm = ({ onSubmit }) => {
         </div>
 
         <div>
-          <label className="block text-gray-400 mb-2 text-sm font-medium">{t('year')}</label>
+          <label className="block text-purple-200/80 mb-2 text-sm font-medium tracking-wide">{t('year')}</label>
           <input 
             type="number" 
             name="year"
             value={formData.year}
             onChange={handleChange}
             className="mystic-input"
-            placeholder="เช่น 2540"
+            placeholder="e.g. 2540"
             required
           />
         </div>
 
         <div>
-          <label className="block text-gray-400 mb-2 text-sm font-medium">{t('birth_time')}</label>
+          <label className="block text-purple-200/80 mb-2 text-sm font-medium tracking-wide">{t('birth_time')}</label>
           <input 
             type="time" 
             name="time"
             value={formData.time}
             onChange={handleChange}
-            className="mystic-input text-gray-100"
+            className="mystic-input"
             required
           />
         </div>
 
-        <button type="submit" className="w-full mt-8 text-lg md:text-xl font-prompt font-semibold px-6 py-4 rounded-xl bg-white text-black transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:scale-[1.01] hover:bg-gray-100 focus:outline-none active:scale-[0.98]">
+        <button type="submit" className="mystic-btn w-full mt-4">
           {t('submit_fortune')}
         </button>
       </form>

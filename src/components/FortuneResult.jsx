@@ -16,25 +16,39 @@ const FortuneResult = ({ results, onReset }) => {
   return (
     <div className="space-y-6 mt-12 animate-fade-in w-full max-w-5xl mx-auto px-4 md:px-8 relative z-10 transition-all duration-500 opacity-100">
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="col-span-1 md:col-span-2 text-center mb-4">
-          <h2 className="text-3xl font-bold text-gold-400 font-prompt tracking-wide">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
+        <div className="col-span-1 md:col-span-2 lg:col-span-3 text-center mb-6">
+          <h2 className="text-4xl font-bold text-white font-prompt tracking-tight drop-shadow-lg">
             {t('your_fortune_title')}
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mt-6 rounded-full shadow-[0_0_15px_rgba(236,72,153,0.5)]"></div>
         </div>
 
+        {/* Top Row: Core Identity */}
         <ElementAnalysis element={results.element} />
         <BaziAnalysis zodiac={results.zodiac} />
         <PlanetAnalysis planet={results.planet} />
         
-        <ElementChart distribution={results.elementBalance.distribution} />
-        <BirthChart birthChart={results.birthChart} />
+        {/* Middle Row: Deep Analysis */}
+        <div className="col-span-1 md:col-span-2 lg:col-span-2 flex flex-col h-full">
+           <BirthChart birthChart={results.birthChart} />
+        </div>
+        <div className="col-span-1 flex flex-col h-full">
+           <ElementChart distribution={results.elementBalance.distribution} />
+        </div>
         
-        <LuckySection color={results.luckyColor} number={results.luckyNumber} day={results.luckyDay} />
-        <AIReading element={results.element} zodiac={results.zodiac} planet={results.planet} />
+        {/* Bottom Data & Reading */}
+        <div className="col-span-1 md:col-span-2 lg:col-span-3">
+          <LuckySection color={results.luckyColor} number={results.luckyNumber} day={results.luckyDay} />
+        </div>
         
-        <CrystalRecommendation crystals={results.recommendedCrystals} />
+        <div className="col-span-1 md:col-span-2 lg:col-span-3">
+          <AIReading element={results.element} zodiac={results.zodiac} planet={results.planet} />
+        </div>
+        
+        <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-4">
+          <CrystalRecommendation crystals={results.recommendedCrystals} />
+        </div>
       </div>
 
       <div className="text-center mt-12">

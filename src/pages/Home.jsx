@@ -51,11 +51,11 @@ const Home = () => {
 
       {/* Hero Portal */}
       <div className="text-center mb-16 z-10 w-full relative py-12">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] bg-indigo-500/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
-        <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-gray-400 mb-6 font-prompt tracking-tight">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35rem] h-[35rem] bg-purple-600/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+        <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-purple-400 mb-6 font-prompt tracking-tight drop-shadow-sm">
           {t('hero_title')}
         </h1>
-        <p className="text-gray-400 max-w-xl mx-auto font-sarabun text-lg md:text-xl leading-relaxed px-4">
+        <p className="text-gray-300 max-w-xl mx-auto font-sarabun text-lg md:text-xl leading-relaxed px-4">
           {t('hero_subtitle')}
         </p>
       </div>
@@ -64,11 +64,11 @@ const Home = () => {
       
       {isCalculating && (
         <div className="mt-16 flex flex-col items-center justify-center animate-pulse relative">
-          <div className="w-24 h-24 rounded-full border-2 border-t-white border-r-white/50 border-b-transparent border-l-transparent animate-spin relative z-10 shadow-[0_0_20px_rgba(255,255,255,0.1)]"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/5 rounded-full blur-xl"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] text-3xl">🔮</div>
+          <div className="w-24 h-24 rounded-full border-2 border-t-purple-400 border-r-purple-400/50 border-b-transparent border-l-transparent animate-spin relative z-10 shadow-[0_0_20px_rgba(139,92,246,0.3)]"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-purple-500/10 rounded-full blur-xl"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] text-3xl drop-shadow-lg">🔮</div>
           
-          <p className="mt-8 text-xl text-gray-300 font-prompt tracking-widest uppercase text-sm">
+          <p className="mt-8 text-xl text-purple-200 font-prompt tracking-widest uppercase text-sm font-semibold">
             {t('fortune_loading')}
           </p>
         </div>
