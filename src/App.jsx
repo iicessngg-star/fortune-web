@@ -40,9 +40,6 @@ function App() {
                 <a href="/#birth-form" className="text-gray-300 hover:text-white font-prompt hover:text-mystic-400 transition-colors font-medium tracking-wide">
                   {t('fortune')}
                 </a>
-                <a href="/shop" className="text-gray-300 hover:text-white font-prompt hover:text-mystic-400 transition-colors font-medium tracking-wide">
-                  {t('crystal')}
-                </a>
                 <Link to="/shop" className="text-gold-400/90 hover:text-gold-400 font-prompt transition-colors font-semibold tracking-wide flex items-center gap-1">
                   <span>💎</span> {t('shop')}
                 </Link>

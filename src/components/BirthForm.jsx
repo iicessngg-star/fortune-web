@@ -19,6 +19,7 @@ const months = [
 const BirthForm = ({ onSubmit }) => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
+    name: '',
     day: '',
     month: '01',
     year: '',
@@ -49,48 +50,64 @@ const BirthForm = ({ onSubmit }) => {
       </h2>
       
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        {/* Name row */}
+        <div>
+          <label className="block text-purple-200/80 mb-2 text-sm font-medium tracking-wide">{t('name')}</label>
+          <input 
+            type="text" 
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="mystic-input text-center md:text-left"
+            placeholder={t('name_placeholder')}
+            required
+          />
+        </div>
+
+        {/* Date Row */}
+        <div className="grid grid-cols-3 gap-3 md:gap-4">
           <div>
-            <label className="block text-purple-200/80 mb-2 text-sm font-medium tracking-wide">{t('day')} (1-31)</label>
+            <label className="block text-purple-200/80 mb-2 text-sm font-medium tracking-wide text-center md:text-left">{t('day')}</label>
             <input 
               type="number" 
               name="day"
               min="1" max="31"
               value={formData.day}
               onChange={handleChange}
-              className="mystic-input"
-              placeholder="1-31"
+              className="mystic-input text-center"
+              placeholder="DD"
               required
             />
           </div>
           <div>
-            <label className="block text-purple-200/80 mb-2 text-sm font-medium tracking-wide">{t('month')}</label>
+            <label className="block text-purple-200/80 mb-2 text-sm font-medium tracking-wide text-center md:text-left">{t('month')}</label>
             <select 
               name="month"
               value={formData.month}
               onChange={handleChange}
-              className="mystic-input"
+              className="mystic-input text-center appearance-none"
             >
               {months.map(m => (
-                <option key={m.value} value={m.value}>{m.label}</option>
+                <option key={m.value} value={m.value} className="bg-[#0b0512]">{m.label}</option>
               ))}
             </select>
           </div>
+          <div>
+            <label className="block text-purple-200/80 mb-2 text-sm font-medium tracking-wide text-center md:text-left">{t('year')}</label>
+            <input 
+              type="number" 
+              name="year"
+              value={formData.year}
+              onChange={handleChange}
+              className="mystic-input text-center"
+              placeholder="YYYY"
+              required
+            />
+          </div>
         </div>
 
-        <div>
-          <label className="block text-purple-200/80 mb-2 text-sm font-medium tracking-wide">{t('year')}</label>
-          <input 
-            type="number" 
-            name="year"
-            value={formData.year}
-            onChange={handleChange}
-            className="mystic-input"
-            placeholder="e.g. 2540"
-            required
-          />
-        </div>
-
+        {/* Time row */}
         <div>
           <label className="block text-purple-200/80 mb-2 text-sm font-medium tracking-wide">{t('birth_time')}</label>
           <input 
@@ -98,7 +115,7 @@ const BirthForm = ({ onSubmit }) => {
             name="time"
             value={formData.time}
             onChange={handleChange}
-            className="mystic-input"
+            className="mystic-input text-center md:text-left"
             required
           />
         </div>

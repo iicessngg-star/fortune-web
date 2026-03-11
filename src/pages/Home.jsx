@@ -7,8 +7,6 @@ import { calculateFortune } from '../utils/fortuneEngine';
 import TestimonialsSection from '../components/TestimonialsSection';
 import { Link } from 'react-router-dom';
 
-const TarotDraw = lazy(() => import('../components/TarotDraw'));
-
 const Home = () => {
   const { t } = useTranslation();
   const [results, setResults] = useState(null);
@@ -96,10 +94,6 @@ const Home = () => {
           </div>
         </>
       )}
-      
-      <Suspense fallback={<div className="h-64 animate-pulse bg-purple-900/20 rounded-2xl w-full max-w-4xl mt-12"></div>}>
-        <TarotDraw />
-      </Suspense>
 
       <TestimonialsSection />
     </div>
