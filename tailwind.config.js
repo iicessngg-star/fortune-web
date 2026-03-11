@@ -24,6 +24,8 @@ export default {
       fontFamily: {
         sarabun: ['Sarabun', 'sans-serif'],
         prompt: ['Prompt', 'sans-serif'],
+        cinzel: ['Cinzel', 'serif'],
+        playfair: ['"Playfair Display"', 'serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

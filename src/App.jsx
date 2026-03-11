@@ -16,8 +16,8 @@ function App() {
   const getNavClass = (path) => {
     const isActive = location.pathname === path;
     return isActive
-      ? "text-gold-400 font-prompt transition-all duration-300 font-bold tracking-widest flex items-center gap-1 drop-shadow-[0_0_8px_rgba(250,204,21,0.6)] scale-105"
-      : "text-gray-300 hover:text-gold-400 font-prompt transition-colors duration-300 font-medium tracking-wide flex items-center gap-1";
+      ? "bg-white/[0.1] px-5 py-1.5 rounded-full text-white font-sarabun font-medium tracking-wide transition-all shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+      : "px-4 py-1.5 text-gray-400 hover:text-white font-sarabun font-medium tracking-wide transition-all";
   };
 
   return (
@@ -38,18 +38,18 @@ function App() {
         </div>
 
         {/* Navigation Bar */}
-        <nav className="sticky top-0 z-50 w-full mb-12">
-          <div className="max-w-6xl mx-auto w-full px-4 pt-4">
-            <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl flex flex-col md:flex-row justify-between items-center px-6 md:px-8 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.1)] gap-4 md:gap-0">
-              <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:space-x-8 text-sm md:text-base">
+        <nav className="sticky top-0 z-50 w-full mb-8 pt-4">
+          <div className="max-w-4xl mx-auto w-full px-4">
+            <div className="bg-white/[0.05] backdrop-blur-xl border border-white/10 rounded-full flex justify-between items-center px-6 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+              <div className="flex items-center space-x-6 text-sm font-sarabun">
                 <Link to="/" className={getNavClass('/')}>
                   {t('home')}
                 </Link>
-                <a href="/#birth-form" className="text-gray-300 hover:text-gold-400 font-prompt transition-colors duration-300 font-medium tracking-wide">
+                <a href="/#birth-form" className="px-4 py-1.5 text-gray-400 hover:text-white font-sarabun font-medium tracking-wide transition-all">
                   {t('fortune')}
                 </a>
-                <Link to="/shop" className={getNavClass('/shop')}>
-                  <span>💎</span> {t('shop')}
+                <Link to="/shop" className={`${getNavClass('/shop')} flex items-center gap-1.5`}>
+                  <span className="text-sm">💎</span> {t('shop')}
                 </Link>
               </div>
               <LanguageSwitcher />

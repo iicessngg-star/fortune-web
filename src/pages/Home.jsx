@@ -1,11 +1,12 @@
+'use client';
+
 import React, { useState, lazy, Suspense } from 'react';
-import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import BirthForm from '../components/BirthForm';
 import FortuneResult from '../components/FortuneResult';
 import { calculateFortune } from '../utils/fortuneEngine';
 import TestimonialsSection from '../components/TestimonialsSection';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Home = () => {
   const { t } = useTranslation();
@@ -40,23 +41,16 @@ const Home = () => {
 
   return (
     <div className="w-full max-w-6xl mx-auto flex flex-col items-center px-2 md:px-4">
-      <Helmet>
-        <title>🔮 Mystic Crystal Oracle | ดูดวงจากวันเกิด</title>
-        <meta name="description" content="ดูดวงจากวันเกิด วิเคราะห์ธาตุประจำตัว พร้อมแนะนำหินมงคลเสริมพลังชีวิตเพื่อคุณโดยเฉพาะ" />
-        <meta property="og:title" content="Mystic Crystal Oracle | เครื่องมือวิเคราะห์ดวงและหินมงคลประจำตัว" />
-        <meta property="og:description" content="ทำนายดวงชะตา เจาะลึกธาตุประจำตัว พร้อมรับคำแนะนำหินมงคลเสริมพลังบวก" />
-      </Helmet>
 
       {/* Hero Portal */}
-      <div className="text-center mb-16 z-10 w-full relative py-12">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35rem] h-[35rem] bg-purple-600/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 font-prompt tracking-tight flex flex-col justify-center items-center gap-4 md:gap-6">
-          <span className="text-6xl md:text-8xl drop-shadow-[0_0_25px_rgba(216,180,254,0.6)] hover:scale-110 transition-transform duration-500 cursor-default">🔮</span>
-          <span className="bg-clip-text text-transparent bg-gradient-to-br from-white via-purple-100 to-purple-400 drop-shadow-sm">
+      <div className="text-center mb-12 z-10 w-full relative pt-16">
+        <h1 className="text-5xl md:text-7xl font-bold mb-4 font-playfair tracking-wide flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 drop-shadow-2xl">
+          <span className="text-5xl md:text-7xl drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">🔮</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#eaddcf] via-[#f7ebd4] to-[#cba365]">
             {t('hero_title')}
           </span>
         </h1>
-        <p className="text-gray-300 max-w-xl mx-auto font-sarabun text-lg md:text-xl leading-relaxed px-4">
+        <p className="text-[#d8cdbd] max-w-xl mx-auto font-sarabun text-lg md:text-xl font-light tracking-wide px-4 mt-2">
           {t('hero_subtitle')}
         </p>
       </div>
