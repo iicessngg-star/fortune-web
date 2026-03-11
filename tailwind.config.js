@@ -8,12 +8,12 @@ export default {
     extend: {
       colors: {
         mystic: {
-          900: '#1a0b2e',
-          800: '#2d1b4e',
-          700: '#432874',
-          600: '#5b3a9d',
-          500: '#754dc9',
-          400: '#916cf6',
+          900: '#14121c',
+          800: '#1e1b29',
+          700: '#2a2438',
+          600: '#483d63',
+          500: '#6d5a99',
+          400: '#9b84d4',
         },
         gold: {
           DEFAULT: '#fbbf24',
@@ -35,8 +35,8 @@ export default {
           '50%': { transform: 'translateY(-10px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 15px rgba(145, 108, 246, 0.2)' },
-          '100%': { boxShadow: '0 0 25px rgba(145, 108, 246, 0.6)' },
+          '0%': { boxShadow: '0 0 15px rgba(155, 132, 212, 0.1)' },
+          '100%': { boxShadow: '0 0 25px rgba(155, 132, 212, 0.3)' },
         }
       }
     },

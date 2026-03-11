@@ -13,7 +13,7 @@ const ElementChart = ({ distribution }) => {
 
   return (
     <div className="mystic-card col-span-1 md:col-span-2 mb-6 flex flex-col items-center">
-      <h3 className="text-xl text-gold-400 mb-8 text-center font-prompt font-bold">
+      <h3 className="text-xl text-gray-100 mb-8 text-center font-prompt font-bold">
         {t('element_balance')}
       </h3>
       
@@ -35,10 +35,10 @@ const ElementChart = ({ distribution }) => {
         {/* Legend Data */}
         <div className="space-y-3 w-full max-w-xs">
           {distribution.map((elem, idx) => (
-            <div key={idx} className="flex items-center justify-between bg-mystic-900/40 px-4 py-2 rounded-lg border border-purple-500/10">
-              <div className="flex items-center gap-3">
-                <span className="drop-shadow-md">{elem.icon}</span> 
-                <span className="font-prompt text-gray-200">{t(`element_${elem.name}`)}</span>
+            <div key={idx} className="flex items-center justify-between bg-white/[0.04] px-5 py-3 rounded-xl border border-white/5">
+              <div className="flex items-center gap-4">
+                <span className="drop-shadow-sm text-lg">{elem.icon}</span> 
+                <span className="font-prompt text-gray-200 font-medium">{t(`element_${elem.name}`)}</span>
               </div>
               <div className="font-bold font-prompt" style={{ color: elem.color }}>
                 {elem.percent}%
@@ -48,8 +48,8 @@ const ElementChart = ({ distribution }) => {
         </div>
       </div>
       
-      <div className="mt-8 text-center">
-        <p className="text-sm text-mystic-300 font-sarabun italic">
+      <div className="mt-10 text-center">
+        <p className="text-sm text-gray-400 font-sarabun max-w-md mx-auto">
           {t('element_chart_desc')}
         </p>
       </div>

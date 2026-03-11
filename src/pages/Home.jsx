@@ -51,11 +51,11 @@ const Home = () => {
 
       {/* Hero Portal */}
       <div className="text-center mb-16 z-10 w-full relative py-12">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500/30 rounded-full blur-[80px] animate-pulse -z-10"></div>
-        <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-300 to-indigo-400 mb-6 drop-shadow-2xl font-prompt">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] bg-indigo-500/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+        <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-gray-400 mb-6 font-prompt tracking-tight">
           {t('hero_title')}
         </h1>
-        <p className="text-mystic-300 max-w-xl mx-auto font-sarabun text-lg md:text-xl leading-relaxed px-4">
+        <p className="text-gray-400 max-w-xl mx-auto font-sarabun text-lg md:text-xl leading-relaxed px-4">
           {t('hero_subtitle')}
         </p>
       </div>
@@ -64,16 +64,11 @@ const Home = () => {
       
       {isCalculating && (
         <div className="mt-16 flex flex-col items-center justify-center animate-pulse relative">
-          <div className="w-32 h-32 rounded-full border-4 border-t-purple-400 border-r-pink-400 border-b-indigo-400 border-l-transparent animate-spin relative z-10 shadow-[0_0_30px_rgba(192,132,252,0.6)]"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-purple-500/40 rounded-full blur-xl animate-ping"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] text-4xl">🔮</div>
+          <div className="w-24 h-24 rounded-full border-2 border-t-white border-r-white/50 border-b-transparent border-l-transparent animate-spin relative z-10 shadow-[0_0_20px_rgba(255,255,255,0.1)]"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/5 rounded-full blur-xl"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] text-3xl">🔮</div>
           
-          {/* Floating particle simulations for ritual */}
-          <div className="absolute w-2 h-2 bg-pink-400 rounded-full animate-bounce top-0 left-10"></div>
-          <div className="absolute w-3 h-3 bg-gold-400 rounded-full animate-bounce top-10 right-10" style={{animationDelay: '0.2s'}}></div>
-          <div className="absolute w-2 h-2 bg-indigo-400 rounded-full animate-bounce bottom-10 left-5" style={{animationDelay: '0.4s'}}></div>
-          
-          <p className="mt-8 text-2xl text-purple-300 font-prompt font-semibold tracking-wide drop-shadow-lg">
+          <p className="mt-8 text-xl text-gray-300 font-prompt tracking-widest uppercase text-sm">
             {t('fortune_loading')}
           </p>
         </div>
@@ -84,20 +79,18 @@ const Home = () => {
           <FortuneResult results={results} onReset={handleReset} />
           
           {/* Conversion Optimization CTA */}
-          <div className="mt-16 mb-8 text-center p-8 mystic-card w-full max-w-2xl mx-auto border-pink-500/50 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-            <h3 className="text-3xl font-bold font-prompt text-gold-400 mb-4 drop-shadow-md relative z-10">
+          <div className="mt-16 mb-8 text-center p-10 mystic-card w-full max-w-3xl mx-auto overflow-hidden group">
+            <h3 className="text-2xl md:text-3xl font-bold font-prompt text-gray-100 mb-4 relative z-10">
               {t('enhance_fortune_cta')}
             </h3>
-            <p className="text-gray-200 mb-8 font-sarabun relative z-10">
+            <p className="text-gray-400 mb-8 font-sarabun relative z-10 max-w-lg mx-auto">
               {t('enhance_fortune_desc')}
             </p>
-            <div className="flex justify-center flex-wrap gap-4 mb-8 relative z-10">
-              <span className="px-3 py-1 bg-red-500/20 text-red-300 font-prompt rounded-full text-sm border border-red-500/30">🔥 {t('popular')}</span>
-              <span className="px-3 py-1 bg-gold-500/20 text-yellow-300 font-prompt rounded-full text-sm border border-yellow-500/30">✨ {t('recommended')}</span>
-              <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 font-prompt rounded-full text-sm border border-indigo-500/30">🧿 {t('best_energy')}</span>
+            <div className="flex justify-center flex-wrap gap-3 mb-8 relative z-10">
+              <span className="px-4 py-1.5 bg-white/5 text-gray-300 font-prompt rounded-full text-xs font-medium border border-white/10 uppercase tracking-wider">🔥 {t('popular')}</span>
+              <span className="px-4 py-1.5 bg-gold-500/10 text-gold-400 font-prompt rounded-full text-xs font-medium border border-gold-500/20 uppercase tracking-wider">✨ {t('recommended')}</span>
             </div>
-            <Link to="/shop" className="inline-block relative z-10 px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white font-prompt font-semibold rounded-2xl shadow-xl hover:shadow-pink-500/50 hover:-translate-y-1 transition-all duration-300">
+            <Link to="/shop" className="inline-block relative z-10 px-8 py-3.5 bg-white text-black font-prompt font-semibold rounded-xl hover:scale-[1.02] transition-transform duration-300">
               {t('view_suitable_crystal')}
             </Link>
           </div>

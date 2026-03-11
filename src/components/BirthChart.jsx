@@ -7,15 +7,15 @@ const BirthChart = ({ birthChart }) => {
 
   return (
     <div className="mystic-card col-span-1 md:col-span-2 flex flex-col items-center justify-center p-8">
-      <h3 className="text-2xl text-gold-400 mb-8 font-prompt font-bold">
+      <h3 className="text-2xl text-gray-100 mb-10 font-prompt font-bold">
         {t('birth_chart_title')}
       </h3>
       
-      <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-purple-500/30 flex items-center justify-center shadow-[0_0_50px_rgba(107,70,193,0.3)] bg-mystic-900/60 backdrop-blur-md">
+      <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-white/10 flex items-center justify-center shadow-[0_0_40px_rgba(255,255,255,0.03)] bg-white/[0.02] backdrop-blur-md">
         {/* Zodiac wheel rings decor */}
-        <div className="absolute inset-2 border border-dashed border-purple-500/20 rounded-full animate-[spin_60s_linear_infinite]"></div>
-        <div className="absolute inset-8 border border-purple-400/10 rounded-full"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(251,191,36,0.1)_0%,transparent_60%)]"></div>
+        <div className="absolute inset-2 border border-dashed border-white/10 rounded-full animate-[spin_60s_linear_infinite]"></div>
+        <div className="absolute inset-8 border border-white/5 rounded-full"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.02)_0%,transparent_60%)]"></div>
         
         {/* Center icon */}
         <div className="absolute text-3xl opacity-50 drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]">
@@ -39,10 +39,10 @@ const BirthChart = ({ birthChart }) => {
               }}
               title={`${planet.name} at ${planet.angle}°`}
             >
-              <span className={`text-2xl drop-shadow-[0_0_8px_rgba(255,255,255,0.7)] ${planet.color}`}>
+              <span className={`text-2xl drop-shadow-sm ${planet.color}`}>
                 {planet.icon}
               </span>
-              <span className="opacity-0 group-hover:opacity-100 absolute top-8 text-xs font-bold text-gray-200 bg-mystic-900/90 px-2 py-1 rounded-md transition-opacity">
+              <span className="opacity-0 group-hover:opacity-100 absolute top-8 text-xs font-medium text-gray-200 bg-[#1c153b] px-3 py-1.5 rounded-lg border border-white/10 transition-opacity whitespace-nowrap z-20 shadow-lg">
                 {t(`planet_${planet.name.toLowerCase()}`)}
               </span>
             </div>
@@ -50,7 +50,7 @@ const BirthChart = ({ birthChart }) => {
         })}
       </div>
       
-      <p className="mt-8 text-sm text-mystic-300 font-sarabun text-center italic">
+      <p className="mt-10 text-sm text-gray-400 font-sarabun text-center max-w-sm">
         {t('birth_chart_desc')}
       </p>
     </div>

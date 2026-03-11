@@ -17,36 +17,38 @@ function App() {
       <Suspense fallback={null}>
         <MagicCursor />
       </Suspense>
-      <div className="min-h-screen py-6 px-4 relative flex flex-col bg-gradient-to-br from-[#1a0b2e] via-[#2d1b4e] to-[#4c1d95]">
-        <Suspense fallback={<div className="fixed inset-0 bg-[#0f0a1f] -z-20"></div>}>
+      <div className="min-h-screen py-6 relative flex flex-col bg-[#0b0a10]">
+        <Suspense fallback={<div className="fixed inset-0 bg-[#0b0a10] -z-20"></div>}>
           <CosmicBackground />
         </Suspense>
         
-        {/* Premium Background ambient glows */}
+        {/* Premium Background ambient glows (Toned down) */}
         <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[5%] left-[10%] w-96 h-96 bg-purple-600/20 rounded-full blur-[100px] mix-blend-screen animate-pulse z-[-10]"></div>
-          <div className="absolute top-[60%] right-[5%] w-[30rem] h-[30rem] bg-indigo-500/10 rounded-full blur-[120px] mix-blend-screen z-[-10]"></div>
-          <div className="absolute bottom-[-10%] left-[20%] w-80 h-80 bg-pink-500/10 rounded-full blur-[100px] mix-blend-screen z-[-10]"></div>
+          <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-indigo-500/5 rounded-full blur-[150px] z-[-10]"></div>
+          <div className="absolute top-[40%] right-[-10%] w-[35rem] h-[35rem] bg-purple-500/5 rounded-full blur-[150px] z-[-10]"></div>
+          <div className="absolute bottom-[-10%] left-[10%] w-96 h-96 bg-pink-500/5 rounded-full blur-[120px] mix-blend-screen z-[-10]"></div>
         </div>
 
         {/* Navigation Bar */}
-        <nav className="max-w-6xl mx-auto w-full mb-8 z-20 mt-4 px-2 md:px-4">
-          <div className="backdrop-blur-xl bg-purple-900/40 border border-purple-500/30 rounded-2xl flex flex-col md:flex-row justify-between items-center px-4 md:px-8 lg:px-12 py-4 shadow-xl gap-4 md:gap-0">
-            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 md:space-x-8 text-sm md:text-base">
-              <Link to="/" className="text-gray-200 hover:text-white font-prompt hover:text-pink-400 transition-colors font-semibold tracking-wide">
-                {t('home')}
-              </Link>
-              <a href="/#birth-form" className="text-gray-200 hover:text-white font-prompt hover:text-pink-400 transition-colors font-semibold tracking-wide">
-                {t('fortune')}
-              </a>
-              <a href="/shop" className="text-gray-200 hover:text-white font-prompt hover:text-pink-400 transition-colors font-semibold tracking-wide">
-                {t('crystal')}
-              </a>
-              <Link to="/shop" className="text-gold-400 hover:text-yellow-300 font-prompt transition-colors font-bold tracking-wide flex items-center gap-1">
-                <span>💎</span> {t('shop')}
-              </Link>
+        <nav className="sticky top-0 z-50 w-full mb-12">
+          <div className="max-w-6xl mx-auto w-full px-4 pt-4">
+            <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl flex flex-col md:flex-row justify-between items-center px-6 md:px-8 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.1)] gap-4 md:gap-0">
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:space-x-8 text-sm md:text-base">
+                <Link to="/" className="text-gray-300 hover:text-white font-prompt hover:text-mystic-400 transition-colors font-medium tracking-wide">
+                  {t('home')}
+                </Link>
+                <a href="/#birth-form" className="text-gray-300 hover:text-white font-prompt hover:text-mystic-400 transition-colors font-medium tracking-wide">
+                  {t('fortune')}
+                </a>
+                <a href="/shop" className="text-gray-300 hover:text-white font-prompt hover:text-mystic-400 transition-colors font-medium tracking-wide">
+                  {t('crystal')}
+                </a>
+                <Link to="/shop" className="text-gold-400/90 hover:text-gold-400 font-prompt transition-colors font-semibold tracking-wide flex items-center gap-1">
+                  <span>💎</span> {t('shop')}
+                </Link>
+              </div>
+              <LanguageSwitcher />
             </div>
-            <LanguageSwitcher />
           </div>
         </nav>
 

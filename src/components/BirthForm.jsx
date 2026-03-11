@@ -44,14 +44,14 @@ const BirthForm = ({ onSubmit }) => {
 
   return (
     <div id="birth-form" className="mystic-card max-w-2xl mx-auto w-full relative z-10 p-6 md:p-10">
-      <h2 className="text-2xl md:text-3xl font-bold text-center text-gold-400 mb-8 font-prompt">
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-100 mb-8 font-prompt">
         {t('birth_form_title')}
       </h2>
       
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-mystic-400 mb-1 text-sm">{t('day')} (1-31)</label>
+            <label className="block text-gray-400 mb-2 text-sm font-medium">{t('day')} (1-31)</label>
             <input 
               type="number" 
               name="day"
@@ -64,7 +64,7 @@ const BirthForm = ({ onSubmit }) => {
             />
           </div>
           <div>
-            <label className="block text-mystic-400 mb-1 text-sm">{t('month')}</label>
+            <label className="block text-gray-400 mb-2 text-sm font-medium">{t('month')}</label>
             <select 
               name="month"
               value={formData.month}
@@ -79,7 +79,7 @@ const BirthForm = ({ onSubmit }) => {
         </div>
 
         <div>
-          <label className="block text-mystic-400 mb-1 text-sm">{t('year')}</label>
+          <label className="block text-gray-400 mb-2 text-sm font-medium">{t('year')}</label>
           <input 
             type="number" 
             name="year"
@@ -92,7 +92,7 @@ const BirthForm = ({ onSubmit }) => {
         </div>
 
         <div>
-          <label className="block text-mystic-400 mb-1 text-sm">{t('birth_time')}</label>
+          <label className="block text-gray-400 mb-2 text-sm font-medium">{t('birth_time')}</label>
           <input 
             type="time" 
             name="time"
@@ -103,7 +103,7 @@ const BirthForm = ({ onSubmit }) => {
           />
         </div>
 
-        <button type="submit" className="w-full mt-8 text-lg md:text-xl font-prompt font-semibold px-6 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-500 text-white transition-all duration-300 shadow-xl hover:shadow-purple-500/40 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-mystic-900 active:scale-95">
+        <button type="submit" className="w-full mt-8 text-lg md:text-xl font-prompt font-semibold px-6 py-4 rounded-xl bg-white text-black transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:scale-[1.01] hover:bg-gray-100 focus:outline-none active:scale-[0.98]">
           {t('submit_fortune')}
         </button>
       </form>
