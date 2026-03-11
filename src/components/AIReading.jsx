@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const AIReading = ({ aiReading }) => {
+const AIReading = ({ element, zodiac, planet }) => {
   const { t } = useTranslation();
 
   return (
@@ -17,7 +17,12 @@ const AIReading = ({ aiReading }) => {
       </h3>
       
       <p className="text-gray-200 leading-relaxed text-lg z-10 relative">
-        "{aiReading}"
+        {t('ai_reading_template', {
+          zodiac: t(`zodiac_${zodiac}`),
+          element: t(`element_${element.name}`),
+          planet: t(`planet_${planet.name}`),
+          planetMeaning: t(`planet_meaning_${planet.name}`)
+        })}
       </p>
     </div>
   );

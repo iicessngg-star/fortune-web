@@ -41,7 +41,7 @@ const Home = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto flex flex-col items-center">
+    <div className="w-full max-w-6xl mx-auto flex flex-col items-center px-2 md:px-4">
       <Helmet>
         <title>🔮 Mystic Crystal Oracle | ดูดวงจากวันเกิด</title>
         <meta name="description" content="ดูดวงจากวันเกิด วิเคราะห์ธาตุประจำตัว พร้อมแนะนำหินมงคลเสริมพลังชีวิตเพื่อคุณโดยเฉพาะ" />
@@ -55,7 +55,7 @@ const Home = () => {
         <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-300 to-indigo-400 mb-6 drop-shadow-2xl font-prompt">
           {t('hero_title')}
         </h1>
-        <p className="text-mystic-300 max-w-xl mx-auto font-sarabun text-xl leading-relaxed">
+        <p className="text-mystic-300 max-w-xl mx-auto font-sarabun text-lg md:text-xl leading-relaxed px-4">
           {t('hero_subtitle')}
         </p>
       </div>

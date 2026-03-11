@@ -18,7 +18,7 @@ const TarotDraw = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto mt-12 mb-12 z-10 relative px-4">
+    <div className="w-full max-w-5xl mx-auto mt-12 mb-12 z-10 relative px-4 md:px-8">
       <div className="mystic-card text-center p-8">
         <h2 className="text-3xl font-bold text-pink-400 font-prompt mb-4">
           {t('tarot_title')}
@@ -50,10 +50,10 @@ const TarotDraw = () => {
             
             <div className="max-w-sm text-left">
               <h3 className="text-2xl font-bold text-gold-400 font-prompt mb-2 px-4 py-1 bg-mystic-900/60 inline-block rounded-lg shadow-inner">
-                {card.name}
+                {t(`${card.key}_name`)}
               </h3>
               <p className="text-lg text-gray-200 font-sarabun mt-4 leading-relaxed bg-mystic-900/40 p-4 rounded-xl border border-purple-500/20">
-                {card.meaning}
+                {t(`${card.key}_meaning`)}
               </p>
               
               <button 

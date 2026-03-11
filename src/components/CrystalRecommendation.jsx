@@ -33,7 +33,7 @@ const CrystalRecommendation = ({ crystals }) => {
             
             <div className="p-4 text-center">
               <p className="text-sm text-gray-300 h-10 line-clamp-2 mb-3">
-                {crystal.benefit}
+                {t(crystal.benefitKey)}
               </p>
               <div className="font-semibold text-gold-400 mb-4 font-prompt text-lg">
                 {t('price')} {crystal.price} {t('baht')}

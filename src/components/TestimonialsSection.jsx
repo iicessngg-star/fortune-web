@@ -1,31 +1,33 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const TestimonialsSection = () => {
+  const { t } = useTranslation();
   const testimonials = [
     {
-      name: 'คุณแพรวา ส.',
-      review: 'หลังจากใช้หิน Amethyst รู้สึกสมาธิดีขึ้นมาก การงานราบรื่นขึ้นอย่างเห็นได้ชัด',
+      name: t('testimonial_1_name'),
+      review: t('testimonial_1_review'),
       rating: 5,
       crystal: 'Amethyst'
     },
     {
-      name: 'คุณนนท์ธวัช ก.',
-      review: 'คำทำนายแม่นยำมากครับ หิน Citrine สวยมาก ใส่แล้วรู้สึกมั่นใจในการคุยงานลูกค้ายิ่งขึ้น',
+      name: t('testimonial_2_name'),
+      review: t('testimonial_2_review'),
       rating: 5,
       crystal: 'Citrine'
     },
     {
-      name: 'คุณมิ้นท์ ว.',
-      review: 'เว็บสวยมาก วิเคราะห์ดวงละเอียด ซื้อ Rose Quartz มาใส่แล้วรู้สึกพลังงานบวกรอบตัวดีขึ้น!',
+      name: t('testimonial_3_name'),
+      review: t('testimonial_3_review'),
       rating: 5,
       crystal: 'Rose Quartz'
     }
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto mt-24 mb-12 z-10 relative">
+    <div className="w-full max-w-6xl mx-auto mt-24 mb-12 z-10 relative px-4 md:px-8">
       <h2 className="text-3xl text-center text-gold-400 mb-8 font-bold font-prompt">
-        ✨ รีวิวจากผู้ศรัทธาพลังหินมงคล ✨
+        {t('testimonials_title')}
       </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -1,12 +1,14 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const BirthChart = ({ birthChart }) => {
+  const { t } = useTranslation();
   if (!birthChart) return null;
 
   return (
     <div className="mystic-card col-span-1 md:col-span-2 flex flex-col items-center justify-center p-8">
       <h3 className="text-2xl text-gold-400 mb-8 font-prompt font-bold">
-        🌌 Birth Chart Wheel
+        {t('birth_chart_title')}
       </h3>
       
       <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-purple-500/30 flex items-center justify-center shadow-[0_0_50px_rgba(107,70,193,0.3)] bg-mystic-900/60 backdrop-blur-md">
@@ -41,7 +43,7 @@ const BirthChart = ({ birthChart }) => {
                 {planet.icon}
               </span>
               <span className="opacity-0 group-hover:opacity-100 absolute top-8 text-xs font-bold text-gray-200 bg-mystic-900/90 px-2 py-1 rounded-md transition-opacity">
-                {planet.name}
+                {t(`planet_${planet.name.toLowerCase()}`)}
               </span>
             </div>
           );
@@ -49,7 +51,7 @@ const BirthChart = ({ birthChart }) => {
       </div>
       
       <p className="mt-8 text-sm text-mystic-300 font-sarabun text-center italic">
-        *ตำแหน่งดวงดาวที่ปรากฏใน Birth Chart จะส่งผลต่อเสน่ห์ พลังงาน และจังหวะชีวิตของคุณ
+        {t('birth_chart_desc')}
       </p>
     </div>
   );

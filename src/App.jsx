@@ -30,9 +30,9 @@ function App() {
         </div>
 
         {/* Navigation Bar */}
-        <nav className="max-w-4xl mx-auto w-full mb-8 z-20 mt-4">
-          <div className="backdrop-blur-xl bg-purple-900/40 border border-purple-500/30 rounded-2xl flex justify-between items-center px-6 md:px-12 py-4 shadow-xl">
-            <div className="flex space-x-6 md:space-x-12">
+        <nav className="max-w-6xl mx-auto w-full mb-8 z-20 mt-4 px-2 md:px-4">
+          <div className="backdrop-blur-xl bg-purple-900/40 border border-purple-500/30 rounded-2xl flex flex-col md:flex-row justify-between items-center px-4 md:px-8 lg:px-12 py-4 shadow-xl gap-4 md:gap-0">
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 md:space-x-8 text-sm md:text-base">
               <Link to="/" className="text-gray-200 hover:text-white font-prompt hover:text-pink-400 transition-colors font-semibold tracking-wide">
                 {t('home')}
               </Link>
@@ -42,7 +42,7 @@ function App() {
               <a href="/shop" className="text-gray-200 hover:text-white font-prompt hover:text-pink-400 transition-colors font-semibold tracking-wide">
                 {t('crystal')}
               </a>
-              <Link to="/shop" className="text-gold-400 hover:text-yellow-300 font-prompt transition-colors font-bold tracking-wide flex items-center gap-2">
+              <Link to="/shop" className="text-gold-400 hover:text-yellow-300 font-prompt transition-colors font-bold tracking-wide flex items-center gap-1">
                 <span>💎</span> {t('shop')}
               </Link>
             </div>
@@ -51,7 +51,7 @@ function App() {
         </nav>
 
         {/* Main Routing Area */}
-        <div className="flex-1">
+        <div className="flex-1 w-full max-w-6xl mx-auto px-2 md:px-4">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />

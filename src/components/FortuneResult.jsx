@@ -14,7 +14,7 @@ const FortuneResult = ({ results, onReset }) => {
   if (!results) return null;
 
   return (
-    <div className="space-y-6 mt-12 animate-fade-in w-full max-w-4xl mx-auto relative z-10 transition-all duration-500 opacity-100">
+    <div className="space-y-6 mt-12 animate-fade-in w-full max-w-5xl mx-auto px-4 md:px-8 relative z-10 transition-all duration-500 opacity-100">
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="col-span-1 md:col-span-2 text-center mb-4">
@@ -32,7 +32,7 @@ const FortuneResult = ({ results, onReset }) => {
         <BirthChart birthChart={results.birthChart} />
         
         <LuckySection color={results.luckyColor} number={results.luckyNumber} day={results.luckyDay} />
-        <AIReading aiReading={results.aiReading} />
+        <AIReading element={results.element} zodiac={results.zodiac} planet={results.planet} />
         
         <CrystalRecommendation crystals={results.recommendedCrystals} />
       </div>

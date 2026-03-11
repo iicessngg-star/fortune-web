@@ -43,13 +43,13 @@ const BirthForm = ({ onSubmit }) => {
   };
 
   return (
-    <div id="birth-form" className="mystic-card max-w-lg mx-auto w-full relative z-10 p-8">
-      <h2 className="text-3xl font-bold text-center text-gold-400 mb-6 font-prompt">
+    <div id="birth-form" className="mystic-card max-w-2xl mx-auto w-full relative z-10 p-6 md:p-10">
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-gold-400 mb-8 font-prompt">
         {t('birth_form_title')}
       </h2>
       
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-mystic-400 mb-1 text-sm">{t('day')} (1-31)</label>
             <input 
@@ -98,12 +98,12 @@ const BirthForm = ({ onSubmit }) => {
             name="time"
             value={formData.time}
             onChange={handleChange}
-            className="mystic-input"
+            className="mystic-input text-gray-100"
             required
           />
         </div>
 
-        <button type="submit" className="w-full mt-6 text-lg font-prompt font-semibold px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-500 text-white transition-all duration-300 shadow-xl hover:shadow-purple-500/40 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-mystic-900 active:scale-95">
+        <button type="submit" className="w-full mt-8 text-lg md:text-xl font-prompt font-semibold px-6 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-500 text-white transition-all duration-300 shadow-xl hover:shadow-purple-500/40 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-mystic-900 active:scale-95">
           {t('submit_fortune')}
         </button>
       </form>
