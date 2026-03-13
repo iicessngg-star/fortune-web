@@ -44,7 +44,7 @@ const CosmicBackground = () => {
                         enable: true,
                         outModes: { default: "bounce" },
                         random: true,
-                        speed: window.innerWidth < 768 ? 0.2 : 0.5,
+                        speed: typeof window !== 'undefined' && window.innerWidth < 768 ? 0.2 : 0.5,
                         straight: false,
                     },
                     number: {

@@ -20,14 +20,15 @@ export default function RootLayout({ children }) {
       <body className="bg-mystic-900 text-gray-100 font-sarabun antialiased min-h-screen">
         <Providers>
           <MagicCursor />
-          <div className="min-h-screen py-6 relative flex flex-col bg-[#0b0a10]">
+          <div className="min-h-screen py-6 relative flex flex-col bg-transparent">
             <CosmicBackground />
             
-            {/* Premium Background ambient glows */}
+            {/* Premium Background ambient glows (Portal Effect) */}
             <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-              <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-indigo-500/5 rounded-full blur-[150px] z-[-10]"></div>
-              <div className="absolute top-[40%] right-[-10%] w-[35rem] h-[35rem] bg-purple-500/5 rounded-full blur-[150px] z-[-10]"></div>
-              <div className="absolute bottom-[-10%] left-[10%] w-96 h-96 bg-pink-500/5 rounded-full blur-[120px] mix-blend-screen z-[-10]"></div>
+              <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[60rem] h-[60rem] bg-fuchsia-600/10 rounded-full blur-[180px] z-[-10] mix-blend-screen"></div>
+              <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-purple-600/20 rounded-full blur-[150px] z-[-10] mix-blend-screen"></div>
+              <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-indigo-600/10 rounded-full blur-[150px] z-[-10]"></div>
+              <div className="absolute top-[50%] right-[-10%] w-[35rem] h-[35rem] bg-pink-500/10 rounded-full blur-[150px] z-[-10]"></div>
             </div>
 
             <Navbar />

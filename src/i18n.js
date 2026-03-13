@@ -5,7 +5,8 @@ import translationEN from './locales/en/translation.json';
 import translationTH from './locales/th/translation.json';
 
 // Get default language from local storage, or fallback to Thai ('th')
-const savedLanguage = localStorage.getItem('appLanguage') || 'th';
+// Prevent SSR crashes by checking typeof window
+const savedLanguage = typeof window !== 'undefined' ? (localStorage.getItem('appLanguage') || 'th') : 'th';
 
 const resources = {
   en: {
