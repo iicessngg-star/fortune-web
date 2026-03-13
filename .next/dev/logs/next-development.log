@@ -1,0 +1,6 @@
+[00:00:05.428] Server  LOG     ✓ Ready in 3.8s
+[00:00:45.438] Server  LOG     ○ Compiling / ...
+[00:00:52.370] Server  INFO    🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[00:00:53.615] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:53.777] Browser INFO    🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[00:00:54.018] Browser ERROR   unhandledRejection: TypeError: engine.checkVersion is not a function

@@ -2,11 +2,11 @@
   "pages": {
     "/Home": [
       "static/chunks/a9d41ee080952747.js",
-      "static/chunks/03b6ef887ea9d350.js",
+      "static/chunks/c152459eedc141a2.js",
       "static/chunks/b452df6ad3f842ce.js",
       "static/chunks/9fe90d731a79e3ce.js",
       "static/chunks/204e2614e99eb52b.js",
-      "static/chunks/turbopack-92981bc9f51a79d3.js"
+      "static/chunks/turbopack-f33ea39618015f95.js"
     ],
     "/Shop": [
       "static/chunks/dcf0cd897214a378.js",
@@ -33,8 +33,8 @@
     "static/chunks/a6dad97d9634a72d.js"
   ],
   "lowPriorityFiles": [
-    "static/5LWR1_IgDJ18_KMxaZygC/_ssgManifest.js",
-    "static/5LWR1_IgDJ18_KMxaZygC/_buildManifest.js"
+    "static/wXqwsHSonO8mF1DnYP2X_/_ssgManifest.js",
+    "static/wXqwsHSonO8mF1DnYP2X_/_buildManifest.js"
   ],
   "rootMainFiles": [
     "static/chunks/0fcf683b57993dc1.js",

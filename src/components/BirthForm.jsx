@@ -46,93 +46,115 @@ const BirthForm = ({ onSubmit }) => {
   };
 
   return (
-    <div id="birth-form" className="max-w-3xl mx-auto w-full relative z-10 px-4 mt-8 pb-12">
-      {/* Decorative crystals (using emojis for now as SVGs aren't available locally, but styled cleanly) */}
-      <div className="absolute top-12 right-0 text-5xl md:text-6xl drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] opacity-80 rotate-12 -z-10">🔮</div>
-      <div className="absolute bottom-8 left-4 text-4xl md:text-5xl drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] opacity-70 -rotate-12 -z-10">💎</div>
-      <div className="absolute bottom-16 right-4 text-3xl md:text-4xl drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] opacity-60 rotate-45 -z-10">✨</div>
-
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-[#f7ebd4] mb-10 font-cinzel tracking-wider drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] flex items-center justify-center gap-3">
-        <span className="text-3xl md:text-4xl drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">🔮</span> {t('birth_form_title')}
-      </h2>
+    <div id="birth-form" className="max-w-2xl mx-auto w-full relative z-10 px-4 mt-4 pb-12">
       
-      <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6 relative max-w-2xl mx-auto">
-        
-        {/* Name row */}
-        <div className="relative">
-          <label className="block text-gray-200/90 mb-2 pl-2 text-[11px] md:text-xs font-sarabun font-light tracking-wide">{t('name')}</label>
-          <input 
-            type="text" 
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="mystic-input text-left px-6"
-            placeholder={t('name_placeholder')}
-            required
-          />
-        </div>
+      {/* Glassmorphic Card Container */}
+      <div
+        className="relative rounded-3xl px-8 py-10 overflow-hidden"
+        style={{
+          background: 'rgba(20, 10, 40, 0.5)',
+          backdropFilter: 'blur(30px)',
+          WebkitBackdropFilter: 'blur(30px)',
+          border: '1px solid rgba(147, 51, 234, 0.25)',
+          boxShadow: '0 0 60px rgba(114, 9, 183, 0.15), 0 25px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)'
+        }}
+      >
+        {/* Decorative corner crystals */}
+        <div className="absolute top-6 right-6 text-4xl drop-shadow-[0_0_20px_rgba(168,85,247,0.8)] opacity-80" style={{filter: 'drop-shadow(0 0 15px rgba(168,85,247,0.8))'}}>💎</div>
+        <div className="absolute bottom-8 left-4 text-3xl opacity-70" style={{filter: 'drop-shadow(0 0 12px rgba(168,85,247,0.7))'}}>💎</div>
 
-        {/* Date Row */}
-        <div className="grid grid-cols-3 gap-3 md:gap-4">
-          <div className="relative">
-            <label className="block text-gray-200/90 mb-2 pl-2 text-[11px] md:text-xs font-sarabun font-light tracking-wide text-left">{t('day')}</label>
-            <input 
-              type="number" 
-              name="day"
-              min="1" max="31"
-              value={formData.day}
+        {/* Form Title */}
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 font-cinzel tracking-wider"
+          style={{
+            background: 'linear-gradient(135deg, #eaddcf, #f7ebd4, #cba365)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            textShadow: 'none',
+            filter: 'drop-shadow(0 0 20px rgba(203,163,101,0.4))'
+          }}
+        >
+          🔮 {t('birth_form_title')}
+        </h2>
+
+        <form onSubmit={handleSubmit} className="space-y-5">
+
+          {/* Name row */}
+          <div>
+            <label className="block text-gray-300/70 mb-1.5 text-xs font-sarabun tracking-widest uppercase">{t('name')}</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
               onChange={handleChange}
-              className="mystic-input text-center"
-              placeholder="DD"
+              className="mystic-input"
+              placeholder={t('name_placeholder')}
               required
             />
           </div>
-          <div className="relative">
-            <label className="block text-gray-200/90 mb-2 pl-2 text-[11px] md:text-xs font-sarabun font-light tracking-wide text-left">{t('month')}</label>
-            <select 
-              name="month"
-              value={formData.month}
-              onChange={handleChange}
-              className="mystic-input text-center appearance-none cursor-pointer"
-            >
-              {months.map(m => (
-                <option key={m.value} value={m.value} className="bg-[#1e192c] text-[#f7ebd4]">{m.label}</option>
-              ))}
-            </select>
+
+          {/* Date Row */}
+          <div className="grid grid-cols-3 gap-3">
+            <div>
+              <label className="block text-gray-300/70 mb-1.5 text-xs font-sarabun tracking-widest uppercase">{t('day')}</label>
+              <input
+                type="number"
+                name="day"
+                min="1" max="31"
+                value={formData.day}
+                onChange={handleChange}
+                className="mystic-input text-center"
+                placeholder="DD"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-gray-300/70 mb-1.5 text-xs font-sarabun tracking-widest uppercase">{t('month')}</label>
+              <select
+                name="month"
+                value={formData.month}
+                onChange={handleChange}
+                className="mystic-input text-center appearance-none cursor-pointer"
+              >
+                {months.map(m => (
+                  <option key={m.value} value={m.value} style={{background: '#1a0a2e', color: '#f7ebd4'}}>{m.label}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="block text-gray-300/70 mb-1.5 text-xs font-sarabun tracking-widest uppercase">{t('year')}</label>
+              <input
+                type="number"
+                name="year"
+                value={formData.year}
+                onChange={handleChange}
+                className="mystic-input text-center"
+                placeholder="YYYY"
+                required
+              />
+            </div>
           </div>
-          <div className="relative">
-            <label className="block text-gray-200/90 mb-2 pl-2 text-[11px] md:text-xs font-sarabun font-light tracking-wide text-left">{t('year')}</label>
-            <input 
-              type="number" 
-              name="year"
-              value={formData.year}
+
+          {/* Time row */}
+          <div>
+            <label className="block text-gray-300/70 mb-1.5 text-xs font-sarabun tracking-widest uppercase">{t('birth_time')}</label>
+            <input
+              type="time"
+              name="time"
+              value={formData.time}
               onChange={handleChange}
-              className="mystic-input text-center"
-              placeholder="YYYY"
+              className="mystic-input cursor-text"
               required
             />
           </div>
-        </div>
 
-        {/* Time row */}
-        <div className="relative">
-          <label className="block text-gray-200/90 mb-2 pl-2 text-[11px] md:text-xs font-sarabun font-light tracking-wide">{t('birth_time')}</label>
-          <input 
-            type="time" 
-            name="time"
-            value={formData.time}
-            onChange={handleChange}
-            className="mystic-input text-left px-6 cursor-text"
-            required
-          />
-        </div>
-
-        <div className="pt-6 relative z-10 w-full flex justify-center">
-          <button type="submit" className="mystic-btn w-full md:w-3/4 max-w-sm">
-            {t('submit_fortune')}
-          </button>
-        </div>
-      </form>
+          {/* Submit Button */}
+          <div className="pt-4">
+            <button type="submit" className="mystic-btn w-full tracking-[0.2em]">
+              {t('submit_fortune')}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
