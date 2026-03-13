@@ -13,7 +13,7 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-prompt tracking-wide;
+    @apply font-cinzel tracking-wide;
   }
 }
 
@@ -27,11 +27,11 @@
   }
   
   .mystic-btn {
-    @apply font-prompt font-semibold px-8 py-3.5 rounded-full bg-gradient-to-r from-purple-700 via-indigo-700 to-purple-800 hover:from-purple-600 hover:to-indigo-600 text-white transition-all duration-300 shadow-[0_0_20px_rgba(139,92,246,0.5)] hover:shadow-[0_0_30px_rgba(139,92,246,0.8)] border border-purple-400/40 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-[#0b0512] active:scale-95 uppercase tracking-widest;
+    @apply font-prompt font-semibold text-sm px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#21094E] via-[#511281] to-[#4A0E4E] hover:from-[#320d75] hover:to-[#5c1161] text-white transition-all duration-300 shadow-[0_0_20px_rgba(81,18,129,0.5)] hover:shadow-[0_0_30px_rgba(81,18,129,0.8)] border border-purple-500/30 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-[#0b0512] active:scale-95 uppercase tracking-widest;
   }
   
   .mystic-input {
-    @apply w-full bg-white/[0.03] border border-white/20 rounded-full py-4 text-center text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/50 focus:bg-white/[0.08] font-sarabun transition-all duration-300 backdrop-blur-md shadow-inner text-sm;
+    @apply w-full bg-white/[0.08] border border-white/20 rounded-2xl py-3 px-4 text-center text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/50 focus:bg-white/[0.12] font-sarabun transition-all duration-300 backdrop-blur-xl shadow-[inset_0_2px_15px_rgba(0,0,0,0.2)] text-sm;
   }
 }
 

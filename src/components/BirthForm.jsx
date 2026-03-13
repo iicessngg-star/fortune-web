@@ -52,30 +52,30 @@ const BirthForm = ({ onSubmit }) => {
       <div className="absolute bottom-8 left-4 text-4xl md:text-5xl drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] opacity-70 -rotate-12 -z-10">💎</div>
       <div className="absolute bottom-16 right-4 text-3xl md:text-4xl drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] opacity-60 rotate-45 -z-10">✨</div>
 
-      <h2 className="text-2xl md:text-3xl font-bold text-center text-[#e1d5c5] mb-12 font-playfair tracking-wider drop-shadow-lg flex items-center justify-center gap-3">
-        <span className="text-3xl">🔮</span> {t('birth_form_title')}
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-[#f7ebd4] mb-10 font-cinzel tracking-wider drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] flex items-center justify-center gap-3">
+        <span className="text-3xl md:text-4xl drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">🔮</span> {t('birth_form_title')}
       </h2>
       
-      <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8 relative">
+      <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6 relative max-w-2xl mx-auto">
         
         {/* Name row */}
         <div className="relative">
-          <label className="block text-gray-300/80 mb-2 pl-4 text-[11px] uppercase font-semibold tracking-widest">{t('name')}</label>
+          <label className="block text-gray-200/90 mb-2 pl-2 text-[11px] md:text-xs font-sarabun font-light tracking-wide">{t('name')}</label>
           <input 
             type="text" 
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="mystic-input text-left px-8"
+            className="mystic-input text-left px-6"
             placeholder={t('name_placeholder')}
             required
           />
         </div>
 
         {/* Date Row */}
-        <div className="grid grid-cols-3 gap-3 md:gap-5">
+        <div className="grid grid-cols-3 gap-3 md:gap-4">
           <div className="relative">
-            <label className="block text-gray-300/80 mb-2 pl-4 text-[11px] uppercase font-semibold tracking-widest text-left">{t('day')}</label>
+            <label className="block text-gray-200/90 mb-2 pl-2 text-[11px] md:text-xs font-sarabun font-light tracking-wide text-left">{t('day')}</label>
             <input 
               type="number" 
               name="day"
@@ -88,7 +88,7 @@ const BirthForm = ({ onSubmit }) => {
             />
           </div>
           <div className="relative">
-            <label className="block text-gray-300/80 mb-2 pl-4 text-[11px] uppercase font-semibold tracking-widest text-left">{t('month')}</label>
+            <label className="block text-gray-200/90 mb-2 pl-2 text-[11px] md:text-xs font-sarabun font-light tracking-wide text-left">{t('month')}</label>
             <select 
               name="month"
               value={formData.month}
@@ -96,12 +96,12 @@ const BirthForm = ({ onSubmit }) => {
               className="mystic-input text-center appearance-none cursor-pointer"
             >
               {months.map(m => (
-                <option key={m.value} value={m.value} className="bg-[#0b0512]">{m.label}</option>
+                <option key={m.value} value={m.value} className="bg-[#1e192c] text-[#f7ebd4]">{m.label}</option>
               ))}
             </select>
           </div>
           <div className="relative">
-            <label className="block text-gray-300/80 mb-2 pl-4 text-[11px] uppercase font-semibold tracking-widest text-left">{t('year')}</label>
+            <label className="block text-gray-200/90 mb-2 pl-2 text-[11px] md:text-xs font-sarabun font-light tracking-wide text-left">{t('year')}</label>
             <input 
               type="number" 
               name="year"
@@ -116,13 +116,13 @@ const BirthForm = ({ onSubmit }) => {
 
         {/* Time row */}
         <div className="relative">
-          <label className="block text-gray-300/80 mb-2 pl-4 text-[11px] uppercase font-semibold tracking-widest">{t('birth_time')}</label>
+          <label className="block text-gray-200/90 mb-2 pl-2 text-[11px] md:text-xs font-sarabun font-light tracking-wide">{t('birth_time')}</label>
           <input 
             type="time" 
             name="time"
             value={formData.time}
             onChange={handleChange}
-            className="mystic-input text-left px-8 cursor-text"
+            className="mystic-input text-left px-6 cursor-text"
             required
           />
         </div>

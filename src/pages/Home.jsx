@@ -43,14 +43,14 @@ const Home = () => {
     <div className="w-full max-w-6xl mx-auto flex flex-col items-center px-2 md:px-4">
 
       {/* Hero Portal */}
-      <div className="text-center mb-12 z-10 w-full relative pt-16">
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 font-playfair tracking-wide flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 drop-shadow-2xl">
-          <span className="text-5xl md:text-7xl drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">🔮</span>
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#eaddcf] via-[#f7ebd4] to-[#cba365]">
+      <div className="text-center mb-10 z-10 w-full relative pt-12">
+        <h1 className="text-5xl md:text-7xl font-bold mb-4 font-cinzel tracking-wider flex flex-col md:flex-row justify-center items-center gap-3 drop-shadow-2xl">
+          <span className="text-5xl md:text-6xl drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] md:mr-3">🔮</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#eaddcf] via-[#f7ebd4] to-[#cba365] pb-2">
             {t('hero_title')}
           </span>
         </h1>
-        <p className="text-[#d8cdbd] max-w-xl mx-auto font-sarabun text-lg md:text-xl font-light tracking-wide px-4 mt-2">
+        <p className="text-[#d8cdbd] max-w-xl mx-auto font-cinzel text-sm md:text-base font-medium tracking-widest px-4 mt-1">
           {t('hero_subtitle')}
         </p>
       </div>
