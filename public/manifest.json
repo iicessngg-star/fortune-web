@@ -1,0 +1,39 @@
+{
+  "name": "Mystic Crystal Fortune",
+  "short_name": "MysticCrystal",
+  "description": "ดูดวงออนไลน์ระดับพรีเมียม โหราศาสตร์ตะวันตก ไพ่ยิปซี เลขศาสตร์ ฤกษ์มงคลไทย",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030118",
+  "theme_color": "#030118",
+  "orientation": "portrait",
+  "lang": "th",
+  "categories": ["lifestyle", "entertainment"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "ดูดวงวันนี้",
+      "url": "/astrology",
+      "description": "คำนวณดวงดาวส่วนตัว"
+    },
+    {
+      "name": "ดึงไพ่ยิปซี",
+      "url": "/tarot",
+      "description": "เลือกไพ่ 3 ใบ"
+    }
+  ]
+}

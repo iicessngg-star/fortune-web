@@ -1,38 +1,117 @@
 'use client';
-
-import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from './LanguageSwitcher';
+import { useState, useEffect } from 'react';
+import { Gem, Menu, X, Star } from 'lucide-react';
+import { useCrystal } from '@/utils/crystalContext';
+
+const navLinks = [
+  { href: '/',                label: 'หน้าหลัก',   icon: '🏠' },
+  { href: '/astrology',       label: 'ดูดวง',      icon: '🔮' },
+  { href: '/tarot',           label: 'ไพ่ยิปซี',  icon: '🃏' },
+  { href: '/numerology',      label: 'เลขศาสตร์', icon: '🔢' },
+  { href: '/thai-auspicious', label: 'ฤกษ์มงคล',  icon: '🕐' },
+  { href: '/shop',            label: 'ร้านค้า',    icon: '🛍️' },
+];
 
 export default function Navbar() {
-  const { t } = useTranslation();
-  const pathname = usePathname();
+  const pathname   = usePathname();
+  const { balance } = useCrystal();
+  const [open, setOpen]       = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const getNavClass = (path) => {
-    const isActive = pathname === path;
-    return isActive
-      ? "bg-white/[0.12] px-5 py-1.5 rounded-full text-[#eaddcf] font-sarabun font-light tracking-wide transition-all shadow-[0_0_15px_rgba(255,255,255,0.05)] border border-white/5"
-      : "px-4 py-1.5 text-gray-400 hover:text-[#eaddcf] font-sarabun font-light tracking-wide transition-all";
-  };
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handler);
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
 
   return (
-    <nav className="sticky top-0 z-50 w-full mb-8 pt-4">
-      <div className="max-w-3xl mx-auto w-full px-4">
-        <div className="bg-[#1e192c]/60 backdrop-blur-xl border border-white/5 rounded-full flex justify-between items-center px-6 py-2 pb-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
-          <div className="flex items-center space-x-1 md:space-x-4 text-[13px] font-sarabun mt-1">
-            <Link href="/" className={getNavClass('/')}>
-              {t('home')}
-            </Link>
-            <a href="/#birth-form" className="px-4 py-1.5 text-gray-400 hover:text-white font-sarabun font-light tracking-wide transition-all">
-              {t('fortune')}
-            </a>
-            <Link href="/shop" className={`${getNavClass('/shop')} flex items-center gap-1.5 border-l border-white/10 pl-6`}>
-              <span className="text-lg">💎</span> {t('shop')}
-            </Link>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? 'glass-nav py-3 shadow-2xl' : 'bg-transparent py-5'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 group">
+          <div className="relative">
+            <Star className="w-6 h-6 text-gold-400 fill-gold-400 animate-pulse-gold" />
+            <div className="absolute inset-0 blur-sm bg-gold-400 opacity-40 rounded-full" />
           </div>
-          <LanguageSwitcher />
+          <span
+            className="font-display text-lg font-bold text-gradient-gold tracking-widest hidden sm:block"
+            style={{ fontFamily: 'Cinzel Decorative, serif' }}
+          >
+            Mystic Crystal
+          </span>
+        </Link>
+
+        {/* Desktop Links */}
+        <div className="hidden lg:flex items-center gap-1">
+          {navLinks.map(link => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 font-sarabun ${
+                  active
+                    ? 'bg-gold-500/20 text-gold-300 border border-gold-500/40'
+                    : 'text-midnight-200 hover:text-gold-300 hover:bg-white/5'
+                }`}
+              >
+                <span>{link.icon}</span>
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Right: Crystal Balance + Mobile Hamburger */}
+        <div className="flex items-center gap-3">
+          {/* Crystal Balance */}
+          <div className="crystal-badge">
+            <Gem className="w-3.5 h-3.5" />
+            <span>{balance.toLocaleString()}</span>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            className="lg:hidden p-2 rounded-lg glass-button text-gold-300"
+            onClick={() => setOpen(o => !o)}
+            aria-label="เมนู"
+          >
+            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Drawer */}
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-400 ${
+          open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="glass-nav px-4 py-4 flex flex-col gap-2 mx-4 mt-2 rounded-2xl">
+          {navLinks.map(link => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all font-sarabun ${
+                  active
+                    ? 'bg-gold-500/20 text-gold-300 border border-gold-500/30'
+                    : 'text-midnight-200 hover:text-gold-300 hover:bg-white/5'
+                }`}
+              >
+                <span className="text-lg">{link.icon}</span>
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </nav>

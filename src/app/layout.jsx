@@ -1,49 +1,53 @@
+import { Inter } from 'next/font/google';
 import './globals.css';
-import CosmicBackground from '../components/CosmicBackground';
-import MagicCursor from '../components/MagicCursor';
-import Navbar from '../components/Navbar';
-import Providers from './Providers';
+import { CrystalProvider } from '@/utils/crystalContext';
+import Navbar           from '@/components/Navbar';
+import StarsBackground  from '@/components/StarsBackground';
+import CrystalChatbot   from '@/components/CrystalChatbot';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: '🔮 Mystic Crystal Oracle',
-  description: 'Discover your destiny, elemental energy, and lucky crystals',
+  title: 'Mystic Crystal Fortune — ดูดวงออนไลน์ระดับพรีเมียม',
+  description:
+    'ดูดวงออนไลน์ด้วยโหราศาสตร์ตะวันตก ไพ่ยิปซี เลขศาสตร์ และฤกษ์มงคลไทย พร้อม AI วิเคราะห์แบบเจาะลึก',
+  keywords: ['ดูดวง', 'โหราศาสตร์', 'ไพ่ยิปซี', 'เลขศาสตร์', 'ฤกษ์มงคล', 'Mystic Crystal'],
+  openGraph: {
+    title:       'Mystic Crystal Fortune',
+    description: 'ดูดวงออนไลน์ระดับพรีเมียม',
+    type:        'website',
+  },
+  manifest: '/manifest.json',
+  themeColor: '#030118',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="th">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Sarabun:wght@200;300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body className="text-gray-100 font-sarabun antialiased min-h-screen">
-        <Providers>
-          <MagicCursor />
-          <div className="min-h-screen py-6 relative flex flex-col">
-            <CosmicBackground />
-            
-            {/* Purple nebula ambient glows - high visibility portal effect */}
-            <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none" style={{zIndex: -1}}>
-              <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[70rem] h-[70rem] rounded-full" style={{background: 'radial-gradient(circle, rgba(114,9,183,0.35) 0%, rgba(76,29,149,0.15) 40%, transparent 70%)', filter: 'blur(60px)'}}></div>
-              <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[45rem] h-[45rem] rounded-full" style={{background: 'radial-gradient(circle, rgba(168,85,247,0.25) 0%, rgba(124,58,237,0.1) 50%, transparent 70%)', filter: 'blur(40px)'}}></div>
-              <div className="absolute top-[-5%] left-[-15%] w-[40rem] h-[40rem] rounded-full" style={{background: 'radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)', filter: 'blur(80px)'}}></div>
-              <div className="absolute bottom-[10%] right-[-10%] w-[35rem] h-[35rem] rounded-full" style={{background: 'radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%)', filter: 'blur(80px)'}}></div>
-            </div>
+      <body className={`${inter.className} bg-midnight-950 text-midnight-100 overflow-x-hidden`}>
+        <CrystalProvider>
+          {/* Animated star background */}
+          <StarsBackground />
 
-            <Navbar />
+          {/* Navigation */}
+          <Navbar />
 
-            {/* Main Routing Area */}
-            <div className="flex-1 w-full max-w-6xl mx-auto px-2 md:px-4">
-              {children}
-            </div>
-            
-            {/* Footer */}
-            <footer className="mt-20 text-center text-mystic-400 text-sm pb-6 z-10 relative">
-              &copy; {new Date().getFullYear()} Mystic Crystal Fortune. วิเคราะห์ดวงและหินมงคล
-            </footer>
-          </div>
-        </Providers>
+          {/* Page content */}
+          <main className="relative z-10 min-h-screen">
+            {children}
+          </main>
+
+          {/* Floating Crystal AI Chatbot */}
+          <CrystalChatbot />
+        </CrystalProvider>
       </body>
     </html>
   );
