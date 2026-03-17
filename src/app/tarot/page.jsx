@@ -3,6 +3,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { getRandomCards } from '@/data/tarotData';
 import { useCrystal } from '@/utils/crystalContext';
 import { Lock, Gem, RotateCcw, Sparkles } from 'lucide-react';
+import { playRitualHum, playCardFlip, playStarSparkle, playCrystalChime } from '@/utils/soundEffects';
 
 const UNLOCK_COST = 30;
 const FEATURE_KEY = 'tarot_deep';
@@ -14,23 +15,38 @@ function RitualButton({ onComplete }) {
   const [done,      setDone]      = useState(false);
   const intervalRef = useRef(null);
 
+  // เรียก onComplete หลัง render เสร็จ (ไม่เรียกใน updater function)
+  useEffect(() => {
+    if (done) {
+      playCrystalChime();
+      onComplete();
+    }
+  }, [done]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const startHold = useCallback(() => {
     if (done) return;
     setHolding(true);
+    playRitualHum();
     intervalRef.current = setInterval(() => {
       setProgress(prev => {
         const next = prev + (100 / 30); // 3s = 30 × 100ms
         if (next >= 100) {
           clearInterval(intervalRef.current);
-          setDone(true);
-          setHolding(false);
-          onComplete();
+          // ไม่เรียก onComplete ที่นี่ — ใช้ useEffect แทน
           return 100;
         }
         return next;
       });
     }, 100);
-  }, [done, onComplete]);
+  }, [done]);
+
+  // เมื่อ progress ถึง 100 ให้ set done
+  useEffect(() => {
+    if (progress >= 100) {
+      setDone(true);
+      setHolding(false);
+    }
+  }, [progress]);
 
   const stopHold = useCallback(() => {
     if (done) return;
@@ -156,25 +172,35 @@ export default function TarotPage() {
   const { unlockFeature, isUnlocked, balance } = useCrystal();
   const unlocked = isUnlocked(FEATURE_KEY);
 
-  const [phase, setPhase] = useState('ritual'); // ritual | draw | result
-  const [cards, setCards] = useState([]);
+  const [phase, setPhase]     = useState('ritual'); // ritual | shuffle | draw | result
+  const [cards, setCards]     = useState([]);
   const [flipped, setFlipped] = useState([false, false, false]);
   const [unlockMsg, setUnlockMsg] = useState('');
+  const [shuffleStep, setShuffleStep] = useState(0); // 0-3 animation frames
 
   function handleRitualComplete() {
-    setTimeout(() => {
-      setCards(getRandomCards(3));
-      setPhase('draw');
-    }, 800);
+    setPhase('shuffle');
+    // Animate shuffle: 3 quick "deal" steps then reveal draw
+    let step = 0;
+    const iv = setInterval(() => {
+      step++;
+      setShuffleStep(step);
+      if (step >= 3) {
+        clearInterval(iv);
+        setCards(getRandomCards(3));
+        setTimeout(() => setPhase('draw'), 400);
+      }
+    }, 350);
   }
 
   function flipCard(i) {
     if (flipped[i]) return;
+    playCardFlip();
     const next = [...flipped];
     next[i] = true;
     setFlipped(next);
     if (next.every(Boolean) && phase !== 'result') {
-      setTimeout(() => setPhase('result'), 600);
+      setTimeout(() => { setPhase('result'); playStarSparkle(); }, 600);
     }
   }
 
@@ -219,6 +245,30 @@ export default function TarotPage() {
               ✦ พิธีตั้งจิตอธิษฐาน ✦
             </h2>
             <RitualButton onComplete={handleRitualComplete} />
+          </div>
+        )}
+
+        {/* ── Phase: Shuffle ───────────────────────── */}
+        {phase === 'shuffle' && (
+          <div className="glass-card p-10 text-center mt-8 animate-fade-in">
+            <h2 className="text-2xl font-cinzel font-bold text-white mb-8">✦ กำลังสับไพ่ ✦</h2>
+            <div className="flex justify-center gap-3 mb-6">
+              {[0,1,2].map(i => (
+                <div
+                  key={i}
+                  className="w-20 h-32 rounded-xl"
+                  style={{
+                    background: 'linear-gradient(135deg, #1a0a3a, #0f0733)',
+                    border: '1px solid rgba(255,216,78,0.3)',
+                    transform: shuffleStep > i ? `translateY(-${(shuffleStep - i) * 12}px) rotate(${(i-1)*8}deg)` : 'none',
+                    transition: 'transform 0.3s ease',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: '2rem',
+                  }}
+                >🔮</div>
+              ))}
+            </div>
+            <p className="text-gold-400 font-sarabun animate-pulse">จักรวาลกำลังเลือกไพ่ให้คุณ...</p>
           </div>
         )}
 

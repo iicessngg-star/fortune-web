@@ -1,29 +1,36 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
-import { Gem, Menu, X, Star } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Gem, Menu, X, Star, Volume2, VolumeX } from 'lucide-react';
 import { useCrystal } from '@/utils/crystalContext';
+import { toggleMute, isMuted } from '@/utils/soundEffects';
 
 const navLinks = [
-  { href: '/',                label: 'หน้าหลัก',   icon: '🏠' },
-  { href: '/astrology',       label: 'ดูดวง',      icon: '🔮' },
-  { href: '/tarot',           label: 'ไพ่ยิปซี',  icon: '🃏' },
-  { href: '/numerology',      label: 'เลขศาสตร์', icon: '🔢' },
-  { href: '/thai-auspicious', label: 'ฤกษ์มงคล',  icon: '🕐' },
-  { href: '/shop',            label: 'ร้านค้า',    icon: '🛍️' },
+  { href: '/',                label: 'หน้าหลัก',  icon: '🏠' },
+  { href: '/astrology',       label: 'ดูดวง',     icon: '🔮' },
+  { href: '/tarot',           label: 'ไพ่ยิปซี', icon: '🃏' },
+  { href: '/numerology',      label: 'เลขศาสตร์',icon: '🔢' },
+  { href: '/thai-auspicious', label: 'ฤกษ์มงคล', icon: '🕐' },
+  { href: '/shop',            label: 'ร้านค้า',   icon: '🛍️' },
 ];
 
 export default function Navbar() {
-  const pathname   = usePathname();
+  const pathname    = usePathname();
   const { balance } = useCrystal();
   const [open, setOpen]       = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [muted, setMuted]     = useState(false);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handler);
     return () => window.removeEventListener('scroll', handler);
+  }, []);
+
+  const handleMute = useCallback(() => {
+    const nowMuted = toggleMute();
+    setMuted(nowMuted);
   }, []);
 
   return (
@@ -68,8 +75,21 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Right: Crystal Balance + Mobile Hamburger */}
-        <div className="flex items-center gap-3">
+        {/* Right: Mute + Crystal Balance + Mobile Hamburger */}
+        <div className="flex items-center gap-2">
+          {/* 🔇 Mute button */}
+          <button
+            onClick={handleMute}
+            title={muted ? 'เปิดเสียง' : 'ปิดเสียง'}
+            className="p-1.5 rounded-full glass-button text-midnight-300 hover:text-gold-300 transition-colors"
+            aria-label={muted ? 'เปิดเสียง' : 'ปิดเสียง'}
+          >
+            {muted
+              ? <VolumeX className="w-4 h-4 text-midnight-400" />
+              : <Volume2 className="w-4 h-4" />
+            }
+          </button>
+
           {/* Crystal Balance */}
           <div className="crystal-badge">
             <Gem className="w-3.5 h-3.5" />

@@ -4,6 +4,7 @@ import { CrystalProvider } from '@/utils/crystalContext';
 import Navbar           from '@/components/Navbar';
 import StarsBackground  from '@/components/StarsBackground';
 import CrystalChatbot   from '@/components/CrystalChatbot';
+import AppShell         from '@/components/AppShell';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -37,18 +38,13 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${inter.className} bg-midnight-950 text-midnight-100 overflow-x-hidden`}>
         <CrystalProvider>
-          {/* Animated star background */}
           <StarsBackground />
-
-          {/* Navigation */}
           <Navbar />
-
-          {/* Page content */}
+          {/* AppShell: DailyRewardModal + other global client-only UI */}
+          <AppShell />
           <main className="relative z-10 min-h-screen">
             {children}
           </main>
-
-          {/* Floating Crystal AI Chatbot */}
           <CrystalChatbot />
         </CrystalProvider>
       </body>

@@ -147,13 +147,23 @@ export default function AstrologyPage() {
                 onChange={handleChange} className="mystic-input"
               />
             </div>
-            <div>
-              <label className="mystic-label">ชั่วโมง</label>
-              <select name="hour" value={form.hour} onChange={handleChange} className="mystic-input">
-                {Array.from({ length: 24 }, (_, i) => (
-                  <option key={i} value={i}>{String(i).padStart(2, '0')}:00 น.</option>
-                ))}
-              </select>
+            <div className="grid grid-cols-2 gap-2 col-span-2 sm:col-span-1">
+              <div>
+                <label className="mystic-label">ชั่วโมง</label>
+                <input
+                  name="hour" type="number" min="0" max="23"
+                  placeholder="0-23" value={form.hour}
+                  onChange={handleChange} className="mystic-input"
+                />
+              </div>
+              <div>
+                <label className="mystic-label">นาที</label>
+                <input
+                  name="minute" type="number" min="0" max="59"
+                  placeholder="0-59" value={form.minute}
+                  onChange={handleChange} className="mystic-input"
+                />
+              </div>
             </div>
             <div className="sm:col-span-2 flex items-end">
               <button type="submit" className="btn-gold w-full py-3 text-base flex items-center justify-center gap-2">
