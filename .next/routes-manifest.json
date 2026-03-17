@@ -29,6 +29,12 @@
       "namedRegex": "^/(?:/)?$"
     },
     {
+      "page": "/astrology",
+      "regex": "^/astrology(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/astrology(?:/)?$"
+    },
+    {
       "page": "/Home",
       "regex": "^/Home(?:/)?$",
       "routeKeys": {},
@@ -41,6 +47,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/numerology",
+      "regex": "^/numerology(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/numerology(?:/)?$"
+    },
+    {
       "page": "/shop",
       "regex": "^/shop(?:/)?$",
       "routeKeys": {},
@@ -51,6 +63,18 @@
       "regex": "^/Shop(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/Shop(?:/)?$"
+    },
+    {
+      "page": "/tarot",
+      "regex": "^/tarot(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tarot(?:/)?$"
+    },
+    {
+      "page": "/thai-auspicious",
+      "regex": "^/thai\\-auspicious(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/thai\\-auspicious(?:/)?$"
     }
   ],
   "dataRoutes": [],

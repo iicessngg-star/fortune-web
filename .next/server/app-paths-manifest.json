@@ -1,6 +1,10 @@
 {
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
+  "/astrology/page": "app/astrology/page.js",
+  "/numerology/page": "app/numerology/page.js",
   "/page": "app/page.js",
-  "/shop/page": "app/shop/page.js"
+  "/shop/page": "app/shop/page.js",
+  "/tarot/page": "app/tarot/page.js",
+  "/thai-auspicious/page": "app/thai-auspicious/page.js"
 }

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#030118"/>
+  <circle cx="256" cy="256" r="220" fill="none" stroke="#f0a800" stroke-width="6" opacity="0.6"/>
+  <circle cx="256" cy="256" r="180" fill="none" stroke="#8b35e0" stroke-width="3" opacity="0.4"/>
+  <text x="256" y="310" font-family="Georgia, serif" font-size="200" text-anchor="middle" fill="#f0a800">✦</text>
+  <text x="256" y="420" font-family="Arial, sans-serif" font-size="30" font-weight="bold" letter-spacing="3" text-anchor="middle" fill="#ffd84e">MYSTIC CRYSTAL</text>
+</svg>

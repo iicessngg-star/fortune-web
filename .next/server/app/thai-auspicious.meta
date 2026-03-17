@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/thai-auspicious/layout,_N_T_/thai-auspicious/page,_N_T_/thai-auspicious"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/thai-auspicious/__PAGE__",
+    "/thai-auspicious",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -1,6 +1,10 @@
 {
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
+  "/astrology/page": "/astrology",
+  "/numerology/page": "/numerology",
   "/page": "/",
-  "/shop/page": "/shop"
+  "/shop/page": "/shop",
+  "/tarot/page": "/tarot",
+  "/thai-auspicious/page": "/thai-auspicious"
 }

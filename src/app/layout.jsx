@@ -18,6 +18,9 @@ export const metadata = {
     type:        'website',
   },
   manifest: '/manifest.json',
+};
+
+export const viewport = {
   themeColor: '#030118',
 };
 
